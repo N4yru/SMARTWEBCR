@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Proteger carpetas de configuración y herramientas internas
+Disallow: /config/
+Disallow: /editor-saaskit.html
+
+Sitemap: https://smartwebcr.com/sitemap.xml

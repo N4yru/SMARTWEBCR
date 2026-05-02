@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopFlow — Inicio</title>
+  <link rel="stylesheet" href="../css/shopflow.css"/>
+  <style>
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+    .hero-left{display:flex;align-items:center;padding:9rem 5% 5rem 8%;position:relative;z-index:2}
+    .hero-right{position:relative;overflow:hidden}
+    .hero-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 8s ease}
+    .hero:hover .hero-img{transform:scale(1.04)}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,transparent 40%);z-index:1}
+    .hero-content{max-width:560px}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+    .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
+    .hero-h1{font-family:var(--font-h);font-size:clamp(3rem,6vw,5.5rem);font-weight:800;line-height:1;letter-spacing:-2px;color:var(--text1);margin-bottom:1.5rem}
+    .hero-h1 span{color:var(--accent)}
+    .hero-p{font-size:1.05rem;color:var(--text2);line-height:1.8;margin-bottom:2.5rem;max-width:420px}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+    .hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--border2)}
+    .stat-n{font-family:var(--font-h);font-size:1.9rem;font-weight:800;color:var(--text1);line-height:1}
+    .stat-l{font-size:.72rem;color:var(--text3);margin-top:.2rem}
+    .marquee-wrap{padding:1rem 0;background:var(--accent);overflow:hidden}
+    .marquee-track{display:flex;animation:marquee 20s linear infinite;white-space:nowrap}
+    .marquee-item{display:inline-flex;align-items:center;gap:16px;padding:0 2rem;font-family:var(--font-h);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#000}
+    .marquee-item .dot{width:4px;height:4px;border-radius:50%;background:rgba(0,0,0,.4)}
+    .cats{padding:6rem 0}
+    .cats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3rem}
+    .cat-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-lg);padding:2rem 1.5rem;text-align:center;text-decoration:none;transition:all .3s;display:block}
+    .cat-card:hover{border-color:var(--accent-dim);transform:translateY(-4px);box-shadow:var(--sh-accent)}
+    .cat-ico{font-size:2.5rem;display:block;margin-bottom:1rem}
+    .cat-name{font-family:var(--font-h);font-size:.95rem;font-weight:700;color:var(--text1);margin-bottom:.3rem}
+    .cat-count{font-size:.78rem;color:var(--text3)}
+    .featured{padding:2rem 0 6rem}
+    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
+    .prod-img-wrap{height:220px;font-size:5rem}
+    .banner{padding:2rem 0 6rem}
+    .banner-wrap{background:var(--accent);border-radius:var(--r-xl);padding:4rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;overflow:hidden}
+    .banner-wrap::before{content:'';position:absolute;right:-80px;top:-80px;width:350px;height:350px;border-radius:50%;background:rgba(0,0,0,.08)}
+    .banner-text{position:relative;z-index:2}
+    .banner-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,.6);margin-bottom:.8rem}
+    .banner-h2{font-family:var(--font-h);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:#000;line-height:1.1;margin-bottom:1rem;letter-spacing:-1px}
+    .banner-p{font-size:.95rem;color:rgba(0,0,0,.7);margin-bottom:2rem}
+    .btn-dark{background:#000;color:#fff}.btn-dark:hover{background:#111}
+    .banner-visual{display:flex;justify-content:center;align-items:center;font-size:9rem;position:relative;z-index:2}
+    .testi-section{padding:2rem 0 6rem}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+    .testi-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-lg);padding:1.8rem;transition:all .3s}
+    .testi-card:hover{border-color:var(--accent-dim);transform:translateY(-3px)}
+    .testi-stars{color:#F59E0B;font-size:.85rem;margin-bottom:.8rem}
+    .testi-text{font-size:.875rem;color:var(--text2);line-height:1.75;margin-bottom:1.4rem;font-style:italic}
+    .testi-author{display:flex;align-items:center;gap:10px}
+    .testi-av{width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:.82rem;color:#000;flex-shrink:0}
+    .testi-av.v2{background:var(--bg3);color:var(--text1)}.testi-av.v3{background:linear-gradient(135deg,var(--accent),var(--accent-h))}
+    .testi-info strong{display:block;font-size:.875rem;font-weight:600;color:var(--text1)}
+    .testi-info span{font-size:.75rem;color:var(--text3)}
+    .cta-section{padding:2rem 0 6rem}
+    .cta-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-xl);padding:5rem;text-align:center;position:relative;overflow:hidden}
+    .cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(var(--accent-rgb),.08) 0%,transparent 65%)}
+    .cta-box h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--text1);margin-bottom:.9rem;letter-spacing:-.5px;position:relative}
+    .cta-box p{color:var(--text2);margin-bottom:2.5rem;position:relative}
+    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
+    @media(max-width:1024px){.cats-grid{grid-template-columns:repeat(2,1fr)}.products-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:768px){.hero{grid-template-columns:1fr;min-height:auto}.hero-left{padding:9rem 5% 4rem}.hero-right{height:300px}.hero-overlay{background:linear-gradient(0deg,var(--bg) 0%,transparent 50%)}.banner-wrap{grid-template-columns:1fr}.banner-visual{display:none}.testi-grid{grid-template-columns:1fr}}
+    @media(max-width:560px){.cats-grid{grid-template-columns:repeat(2,1fr)}.products-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="shopflow-index.html" class="nav-logo"><img src="../imagenes/Logo Smart Web CR- sin fondo.png" alt="ShopFlow"/></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="shopflow-index.html" class="active">Inicio</a></li>
+      <li><a href="shopflow-catalogo.html">Catálogo</a></li>
+      <li><a href="shopflow-catalogo.html?cat=ofertas">Ofertas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-icon-btn" id="search-btn">🔍</button>
+      <button class="nav-icon-btn" id="cart-btn">🛒<span class="cart-count" id="cart-count">0</span></button>
+      <button class="nav-icon-btn" id="theme-btn">🌙</button>
+      <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-content reveal left">
+      <span class="hero-eyebrow">Nueva colección 2025</span>
+      <h1 class="hero-h1">Estilo que<br><span>define</span><br>quién sos.</h1>
+      <p class="hero-p">Descubrí nuestra selección de productos premium. Envío gratis en pedidos mayores a $50.</p>
+      <div class="hero-actions">
+        <a href="shopflow-catalogo.html" class="btn btn-accent">Ver catálogo →</a>
+        <a href="#featured" class="btn btn-outline">Destacados</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-n" data-count="500" data-suffix="+">0+</div><div class="stat-l">Productos</div></div>
+        <div><div class="stat-n" data-count="2400" data-suffix="+">0+</div><div class="stat-l">Clientes</div></div>
+        <div><div class="stat-n" data-count="4" data-suffix=".9★">0</div><div class="stat-l">Calificación</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80" alt="Hero"/>
+    <div class="hero-overlay"></div>
+  </div>
+</section>
+
+<div class="marquee-wrap"><div class="marquee-track">
+  <span class="marquee-item"><span class="dot"></span>Envío gratis +$50</span>
+  <span class="marquee-item"><span class="dot"></span>Devoluciones 30 días</span>
+  <span class="marquee-item"><span class="dot"></span>Pago seguro</span>
+  <span class="marquee-item"><span class="dot"></span>Soporte 24/7</span>
+  <span class="marquee-item"><span class="dot"></span>Garantía de calidad</span>
+  <span class="marquee-item"><span class="dot"></span>Envío gratis +$50</span>
+  <span class="marquee-item"><span class="dot"></span>Devoluciones 30 días</span>
+  <span class="marquee-item"><span class="dot"></span>Pago seguro</span>
+  <span class="marquee-item"><span class="dot"></span>Soporte 24/7</span>
+  <span class="marquee-item"><span class="dot"></span>Garantía de calidad</span>
+</div></div>
+
+<section class="cats"><div class="section-inner">
+  <span class="tag">Explorá</span>
+  <h2 class="h-title">Comprar por <em>categoría</em></h2>
+  <div class="cats-grid">
+    <a href="shopflow-catalogo.html?cat=ropa" class="cat-card reveal up"><span class="cat-ico">👕</span><div class="cat-name">Ropa</div><div class="cat-count">120+ productos</div></a>
+    <a href="shopflow-catalogo.html?cat=electronica" class="cat-card reveal up" style="transition-delay:.08s"><span class="cat-ico">💻</span><div class="cat-name">Electrónica</div><div class="cat-count">85+ productos</div></a>
+    <a href="shopflow-catalogo.html?cat=hogar" class="cat-card reveal up" style="transition-delay:.16s"><span class="cat-ico">🏠</span><div class="cat-name">Hogar</div><div class="cat-count">95+ productos</div></a>
+    <a href="shopflow-catalogo.html?cat=accesorios" class="cat-card reveal up" style="transition-delay:.24s"><span class="cat-ico">👜</span><div class="cat-name">Accesorios</div><div class="cat-count">200+ productos</div></a>
+  </div>
+</div></section>
+
+<section class="featured" id="featured"><div class="section-inner">
+  <span class="tag">Lo mejor</span>
+  <h2 class="h-title">Productos <em>destacados</em></h2>
+  <p class="h-sub">Los más vendidos de la semana, elegidos por nuestra comunidad.</p>
+  <div class="products-grid">
+    <div class="prod-card reveal up">
+      <div class="prod-img-wrap"><span>👟</span><span class="prod-badge badge-new">Nuevo</span><div class="prod-actions"><button class="prod-btn" onclick="location.href='shopflow-producto.html'">Agregar al carrito</button><button class="prod-btn-icon" onclick="location.href='shopflow-producto.html'">👁</button></div></div>
+      <div class="prod-body"><div class="prod-category">Calzado</div><div class="prod-name">Zapatillas Urban Runner Pro</div><div class="prod-rating"><span class="stars">★★★★★</span><span class="rating-n">(128)</span></div><div class="prod-price"><span class="price-now">$89.99</span><span class="price-old">$120</span><span class="price-save">-25%</span></div></div>
+    </div>
+    <div class="prod-card reveal up" style="transition-delay:.1s">
+      <div class="prod-img-wrap"><span>🎧</span><span class="prod-badge badge-hot">Popular</span><div class="prod-actions"><button class="prod-btn" onclick="location.href='shopflow-producto.html'">Agregar al carrito</button><button class="prod-btn-icon" onclick="location.href='shopflow-producto.html'">👁</button></div></div>
+      <div class="prod-body"><div class="prod-category">Electrónica</div><div class="prod-name">Auriculares Noise Cancel X1</div><div class="prod-rating"><span class="stars">★★★★★</span><span class="rating-n">(94)</span></div><div class="prod-price"><span class="price-now">$149.00</span></div></div>
+    </div>
+    <div class="prod-card reveal up" style="transition-delay:.2s">
+      <div class="prod-img-wrap"><span>🕶️</span><span class="prod-badge badge-sale">-30%</span><div class="prod-actions"><button class="prod-btn" onclick="location.href='shopflow-producto.html'">Agregar al carrito</button><button class="prod-btn-icon" onclick="location.href='shopflow-producto.html'">👁</button></div></div>
+      <div class="prod-body"><div class="prod-category">Accesorios</div><div class="prod-name">Gafas de Sol Retro Wave</div><div class="prod-rating"><span class="stars">★★★★☆</span><span class="rating-n">(67)</span></div><div class="prod-price"><span class="price-now">$34.99</span><span class="price-old">$49.99</span><span class="price-save">-30%</span></div></div>
+    </div>
+    <div class="prod-card reveal up" style="transition-delay:.3s">
+      <div class="prod-img-wrap"><span>⌚</span><span class="prod-badge badge-new">Nuevo</span><div class="prod-actions"><button class="prod-btn" onclick="location.href='shopflow-producto.html'">Agregar al carrito</button><button class="prod-btn-icon" onclick="location.href='shopflow-producto.html'">👁</button></div></div>
+      <div class="prod-body"><div class="prod-category">Accesorios</div><div class="prod-name">Reloj Smartwatch S8 Ultra</div><div class="prod-rating"><span class="stars">★★★★★</span><span class="rating-n">(211)</span></div><div class="prod-price"><span class="price-now">$199.00</span></div></div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:2.5rem"><a href="shopflow-catalogo.html" class="btn btn-outline">Ver todos los productos →</a></div>
+</div></section>
+
+<section class="banner"><div class="section-inner">
+  <div class="banner-wrap reveal up">
+    <div class="banner-text">
+      <div class="banner-eyebrow">Oferta especial</div>
+      <h2 class="banner-h2">Hasta 40% OFF<br>en toda la tienda</h2>
+      <p class="banner-p">Solo por tiempo limitado. Aprovechá los mejores precios del año.</p>
+      <a href="shopflow-catalogo.html" class="btn btn-dark">Ver ofertas →</a>
+    </div>
+    <div class="banner-visual">🛍️</div>
+  </div>
+</div></section>
+
+<section class="testi-section"><div class="section-inner">
+  <span class="tag">Opiniones</span>
+  <h2 class="h-title">Lo que dicen <em>nuestros clientes</em></h2>
+  <div class="testi-grid">
+    <div class="testi-card reveal up"><div class="testi-stars">★★★★★</div><p class="testi-text">"Excelente calidad y llegó antes de lo esperado. El packaging muy cuidado."</p><div class="testi-author"><div class="testi-av">MC</div><div class="testi-info"><strong>María C.</strong><span>Compradora verificada</span></div></div></div>
+    <div class="testi-card reveal up" style="transition-delay:.08s"><div class="testi-stars">★★★★★</div><p class="testi-text">"Los auriculares son increíbles. La cancelación de ruido es perfecta."</p><div class="testi-author"><div class="testi-av v2">JR</div><div class="testi-info"><strong>Jorge R.</strong><span>Comprador verificado</span></div></div></div>
+    <div class="testi-card reveal up" style="transition-delay:.16s"><div class="testi-stars">★★★★★</div><p class="testi-text">"Atención al cliente excepcional. Resolvieron mi problema en 1 hora."</p><div class="testi-author"><div class="testi-av v3">LP</div><div class="testi-info"><strong>Laura P.</strong><span>Compradora verificada</span></div></div></div>
+  </div>
+</div></section>
+
+<section class="cta-section"><div class="section-inner">
+  <div class="cta-box reveal up">
+    <span class="tag" style="margin-bottom:1.5rem">Unite a nosotros</span>
+    <h2>¿Querés recibir las mejores ofertas antes que nadie?</h2>
+    <p>Suscribite y obtené 10% OFF en tu primera compra.</p>
+    <div class="cta-btns">
+      <div style="display:flex;max-width:420px;width:100%">
+        <input type="email" placeholder="tu@correo.com" style="flex:1;background:var(--bg);border:1.5px solid var(--border2);border-right:none;border-radius:var(--r-sm) 0 0 var(--r-sm);padding:13px 16px;font-family:var(--font-b);font-size:.9rem;color:var(--text1);outline:none" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border2)'"/>
+        <button class="btn btn-accent" style="border-radius:0 var(--r-sm) var(--r-sm) 0;padding:13px 22px">Suscribirse</button>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<footer id="contacto"><div class="footer-inner">
+  <div class="footer-top">
+    <div class="footer-brand footer-col"><img src="../imagenes/Logo Smart Web CR- sin fondo.png" alt="ShopFlow" class="footer-logo"/><p>Tu tienda online de confianza. Productos de calidad, envío rápido y atención personalizada.</p></div>
+    <div class="footer-col"><h4>Tienda</h4><ul><li><a href="shopflow-catalogo.html">Todos los productos</a></li><li><a href="shopflow-catalogo.html?cat=nuevo">Novedades</a></li><li><a href="shopflow-catalogo.html?cat=ofertas">Ofertas</a></li></ul></div>
+    <div class="footer-col"><h4>Ayuda</h4><ul><li><a href="#">Preguntas frecuentes</a></li><li><a href="#">Política de envíos</a></li><li><a href="#">Devoluciones</a></li></ul></div>
+    <div class="footer-col"><h4>Contacto</h4><ul><li><a href="mailto:hola@tienda.com">hola@tienda.com</a></li><li><a href="https://wa.me/50600000000" target="_blank">WhatsApp</a></li><li><span>Lunes–Viernes 9am–6pm</span></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© <span id="footer-year"></span> ShopFlow.</span><div style="display:flex;gap:.5rem"><span class="pay-badge">💳 VISA</span><span class="pay-badge">💳 MC</span><span class="pay-badge">📱 SINPE</span></div></div>
+</div></footer>
+
+<script src="../js/shopflow.js"></script>
+</body>
+</html>

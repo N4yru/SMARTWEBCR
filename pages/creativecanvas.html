@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sofía Arce — Creativa Visual</title>
+  <meta name="description" content="Portfolio de fotografía, diseño e ilustración. Sofía Arce — Creativa visual disponible para proyectos."/>
+  <link rel="stylesheet" href="../css/creativecanvas.css"/>
+  <style>
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(16, 14, 11, .95);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lb-inner {
+      text-align: center; max-width: 600px; padding: 2rem;
+    }
+    .lb-emoji { font-size: 8rem; display: block; margin-bottom: 1.5rem; }
+    .lb-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; color: #F2EDE6; margin-bottom: .5rem; }
+    .lb-cat   { font-size: .75rem; color: rgba(180,165,145,.6); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem; }
+    .lb-close {
+      position: absolute; top: 2rem; right: 2rem;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
+      color: #fff; font-size: 1.2rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,.2); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     LIGHTBOX
+══════════════════════════════════════ -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" title="Cerrar">✕</button>
+  <div class="lb-inner">
+    <span class="lb-emoji" id="lightbox-emoji">🎨</span>
+    <div class="lb-title" id="lightbox-title">Obra</div>
+    <div class="lb-cat" id="lightbox-cat">Categoría</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">
+      Sofía<span>.</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#gallery">Galería</a></li>
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#testimonials">Clientes</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" id="theme-btn">🌙</button>
+      <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <a href="#contact" class="btn btn-terra" style="font-size:.82rem;padding:10px 22px">Trabajemos →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" id="hero">
+
+  <!-- Left -->
+  <div class="hero-left">
+    <div class="hero-label">
+      <span class="hero-label-dot"></span>
+      Creativa visual disponible
+    </div>
+
+    <h1 class="hero-h1">
+      Arte que<br>
+      <em>cuenta</em><br>
+      historias.
+    </h1>
+
+    <p class="hero-p">
+      Transformo ideas en imágenes que conectan. Fotografía, diseño e ilustración
+      para marcas y personas que quieren comunicar con autenticidad.
+    </p>
+
+    <div class="hero-btns">
+      <a href="#gallery" class="btn btn-terra">Ver mi trabajo →</a>
+      <a href="#contact" class="btn btn-ghost">Contactarme</a>
+    </div>
+
+    <div class="hero-scroll">
+      <span class="hero-scroll-line"></span>
+      Scroll para explorar
+    </div>
+  </div>
+
+  <!-- Right: image grid -->
+  <div class="hero-right">
+    <div class="hero-grid">
+      <div class="hero-grid-item hgi-1">🌸</div>
+      <div class="hero-grid-item">🎨</div>
+      <div class="hero-grid-item">📸</div>
+    </div>
+    <div class="hero-float">
+      ✦ 120+ proyectos completados
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     MARQUEE
+══════════════════════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="dot"></span>Fotografía</span>
+    <span class="marquee-item"><span class="dot"></span>Diseño gráfico</span>
+    <span class="marquee-item"><span class="dot"></span>Ilustración</span>
+    <span class="marquee-item"><span class="dot"></span>Branding visual</span>
+    <span class="marquee-item"><span class="dot"></span>Dirección de arte</span>
+    <span class="marquee-item"><span class="dot"></span>Retoque fotográfico</span>
+    <span class="marquee-item"><span class="dot"></span>Identidad de marca</span>
+    <span class="marquee-item"><span class="dot"></span>Fotografía</span>
+    <span class="marquee-item"><span class="dot"></span>Diseño gráfico</span>
+    <span class="marquee-item"><span class="dot"></span>Ilustración</span>
+    <span class="marquee-item"><span class="dot"></span>Branding visual</span>
+    <span class="marquee-item"><span class="dot"></span>Dirección de arte</span>
+    <span class="marquee-item"><span class="dot"></span>Retoque fotográfico</span>
+    <span class="marquee-item"><span class="dot"></span>Identidad de marca</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     GALLERY
+══════════════════════════════════════ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+
+    <div class="gallery-header">
+      <div class="reveal">
+        <div class="eyebrow">Portafolio</div>
+        <h2>Trabajo que<br><em>inspira.</em></h2>
+      </div>
+      <div class="gallery-header-right reveal">
+        <p>Una selección de proyectos que reflejan mi estilo único: la intersección entre la técnica y la emoción visual.</p>
+        <a href="#contact" class="btn btn-ghost" style="font-size:.85rem;padding:11px 24px">Encargar proyecto →</a>
+      </div>
+    </div>
+
+    <div class="gallery-filters reveal">
+      <button class="gf-btn active" data-filter="all">Todos</button>
+      <button class="gf-btn" data-filter="foto">Fotografía</button>
+      <button class="gf-btn" data-filter="diseno">Diseño</button>
+      <button class="gf-btn" data-filter="ilustracion">Ilustración</button>
+      <button class="gf-btn" data-filter="branding">Branding</button>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal" data-cat="foto" data-title="Luz de Tarde">
+        <div class="gi-img">🌅
+          <div class="gi-overlay">
+            <h4>Luz de Tarde</h4>
+            <p>Fotografía · 2024</p>
+            <button class="gi-view">Ver obra</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-cat="diseno" data-title="Geometría Viva">
+        <div class="gi-img">🔺
+          <div class="gi-overlay">
+            <h4>Geometría Viva</h4>
+            <p>Diseño · 2024</p>
+            <button class="gi-view">Ver obra</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-cat="ilustracion" data-title="Sueños en Acuarela">
+        <div class="gi-img">🎨
+          <div class="gi-overlay">
+            <h4>Sueños en Acuarela</h4>
+            <p>Ilustración · 2024</p>
+            <button class="gi-view">Ver obra</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-cat="branding" data-title="Identidad Raíz">
+        <div class="gi-img">🌿
+          <div class="gi-overlay">
+            <h4>Identidad Raíz</h4>
+            <p>Branding · 2023</p>
+            <button class="gi-view">Ver obra</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-cat="foto" data-title="Retrato Urbano">
+        <div class="gi-img">🏙️
+          <div class="gi-overlay">
+            <h4>Retrato Urbano</h4>
+            <p>Fotografía · 2023</p>
+            <button class="gi-view">Ver obra</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-cat="ilustracion" data-title="Flora Imaginaria">
+        <div class="gi-img">🌺
+          <div class="gi-overlay">
+            <h4>Flora Imaginaria</h4>
+            <p>Ilustración · 2023</p>
+            <button class="gi-view">Ver obra</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="container about-inner">
+
+    <div class="about-img-wrap reveal">
+      <div class="about-img-main">🧑‍🎨</div>
+      <div class="about-circle"></div>
+      <div class="about-float">
+        <div class="af-num">7+</div>
+        <div class="af-label">Años creando</div>
+      </div>
+    </div>
+
+    <div class="about-content reveal">
+      <div class="eyebrow">Sobre mí</div>
+      <h2>Cuento historias<br>con <em>imágenes.</em></h2>
+      <p>Soy Sofía, creativa visual con más de 7 años trabajando en la intersección del arte y la comunicación. Mi trabajo nace de una obsesión por los detalles y una búsqueda constante de la emoción auténtica.</p>
+      <p>He colaborado con marcas, emprendedores y personas que quieren comunicar algo real. Cada proyecto es una conversación visual que comienza con una pregunta: ¿qué querés que sienta quien vea esto?</p>
+      <p>Disponible para proyectos de fotografía, diseño, ilustración y dirección de arte en Costa Rica y de forma remota.</p>
+
+      <div class="about-facts">
+        <div class="about-fact">
+          <div class="af-fact-num">120+</div>
+          <div class="af-fact-label">Proyectos completados</div>
+        </div>
+        <div class="about-fact">
+          <div class="af-fact-num">45+</div>
+          <div class="af-fact-label">Clientes satisfechos</div>
+        </div>
+        <div class="about-fact">
+          <div class="af-fact-num">8</div>
+          <div class="af-fact-label">Premios recibidos</div>
+        </div>
+        <div class="about-fact">
+          <div class="af-fact-num">CR 🇨🇷</div>
+          <div class="af-fact-label">Basada en Costa Rica</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+        <a href="#gallery" class="btn btn-terra">Ver mi trabajo →</a>
+        <a href="#" class="btn btn-ghost">Descargar CV</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICES
+══════════════════════════════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <div class="eyebrow">Servicios</div>
+      <h2>Lo que puedo<br><em>hacer por vos.</em></h2>
+      <p>Servicios creativos pensados para marcas y personas que quieren comunicar con autenticidad y estilo propio.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="srv-card reveal">
+        <div class="srv-num">01</div>
+        <h3>Fotografía</h3>
+        <p>Sesiones de producto, retrato, lifestyle y eventos. Capturo la esencia de cada momento con luz natural y composición cuidada.</p>
+        <ul class="srv-list">
+          <li>Fotografía de producto</li>
+          <li>Retrato y lifestyle</li>
+          <li>Fotografía de eventos</li>
+          <li>Edición y retoque</li>
+        </ul>
+      </div>
+
+      <div class="srv-card reveal" style="transition-delay:.1s">
+        <div class="srv-num">02</div>
+        <h3>Diseño Gráfico</h3>
+        <p>Diseño editorial, packaging, piezas digitales e impresas. Todo con coherencia visual y atención obsesiva a los detalles.</p>
+        <ul class="srv-list">
+          <li>Diseño editorial</li>
+          <li>Packaging y etiquetas</li>
+          <li>Piezas para redes sociales</li>
+          <li>Material impreso</li>
+        </ul>
+      </div>
+
+      <div class="srv-card reveal" style="transition-delay:.2s">
+        <div class="srv-num">03</div>
+        <h3>Ilustración</h3>
+        <p>Ilustraciones digitales y tradicionales para libros, marcas, productos y proyectos personales con estilo único e irrepetible.</p>
+        <ul class="srv-list">
+          <li>Ilustración digital</li>
+          <li>Acuarela e ilustración tradicional</li>
+          <li>Personajes y mascotas</li>
+          <li>Patrones y texturas</li>
+        </ul>
+      </div>
+
+      <div class="srv-card reveal">
+        <div class="srv-num">04</div>
+        <h3>Branding Visual</h3>
+        <p>Identidad visual completa para marcas que quieren ser recordadas. Desde el logo hasta el sistema visual completo.</p>
+        <ul class="srv-list">
+          <li>Logo e identidad</li>
+          <li>Paleta y tipografía</li>
+          <li>Manual de marca</li>
+          <li>Aplicaciones digitales</li>
+        </ul>
+      </div>
+
+      <div class="srv-card reveal" style="transition-delay:.1s">
+        <div class="srv-num">05</div>
+        <h3>Dirección de Arte</h3>
+        <p>Concepto y dirección creativa para campañas, editoriales y proyectos visuales que necesitan una visión cohesiva.</p>
+        <ul class="srv-list">
+          <li>Concepto visual</li>
+          <li>Dirección de sesiones</li>
+          <li>Moodboards y referencias</li>
+          <li>Supervisión creativa</li>
+        </ul>
+      </div>
+
+      <div class="srv-card reveal" style="transition-delay:.2s">
+        <div class="srv-num">06</div>
+        <h3>Contenido para Redes</h3>
+        <p>Creación de contenido visual para Instagram, Pinterest y otras plataformas. Feed aesthetic y coherencia de marca.</p>
+        <ul class="srv-list">
+          <li>Planificación de feed</li>
+          <li>Sesiones de contenido</li>
+          <li>Templates para historias</li>
+          <li>Estrategia visual</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testi-header">
+      <div class="reveal">
+        <div class="eyebrow">Clientes</div>
+        <h2>Palabras que<br><em>me inspiran.</em></h2>
+      </div>
+      <div class="reveal">
+        <p style="color:var(--text2);line-height:1.8;max-width:380px">Lo que dicen quienes confiaron su visión a mis manos.</p>
+        <div style="margin-top:1.5rem">
+          <a href="#contact" class="btn btn-ghost" style="font-size:.85rem;padding:11px 24px">Trabajemos →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-grid">
+
+      <div class="testi-card dark-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-stars">★★★★★</p>
+        <p class="testi-text">"Sofía capturó exactamente lo que quería para mi marca. Las fotos de producto transformaron por completo la percepción de mis clientes. Una artista de verdad."</p>
+        <div class="testi-author">
+          <div class="testi-av">VP</div>
+          <div class="testi-info"><strong>Valentina Ponce</strong><span>Fundadora · Botanica Skin</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.08s">
+        <div class="testi-quote">"</div>
+        <p class="testi-stars">★★★★★</p>
+        <p class="testi-text">"El rebrand que hizo para nosotros fue una transformación total. No solo diseñó un logo, construyó una identidad que nos representa completamente."</p>
+        <div class="testi-author">
+          <div class="testi-av terra">MR</div>
+          <div class="testi-info"><strong>Marcos Rueda</strong><span>Director · Cafetería Raíces</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="transition-delay:.16s">
+        <div class="testi-quote">"</div>
+        <p class="testi-stars">★★★★★</p>
+        <p class="testi-text">"Las ilustraciones para mi libro infantil superaron todas mis expectativas. Sofía entendió la historia desde el primer encuentro y la tradujo en imágenes mágicas."</p>
+        <div class="testi-author">
+          <div class="testi-av">LM</div>
+          <div class="testi-info"><strong>Lucía Mora</strong><span>Escritora · Editorial Nube</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+
+    <div class="reveal">
+      <div class="eyebrow">Contacto</div>
+      <h2>Hablemos de<br>tu <em>proyecto.</em></h2>
+      <p>¿Tenés una idea, un proyecto o simplemente querés saber cómo podría ayudarte? Escribime y respondí en menos de 24 horas.</p>
+
+      <div class="contact-items">
+        <a href="mailto:hola@sofiarce.com" class="contact-item">
+          <div class="ci-ico">📧</div>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-value">hola@sofiarce.com</div>
+          </div>
+        </a>
+        <a href="https://wa.me/50600000000" target="_blank" class="contact-item">
+          <div class="ci-ico">💬</div>
+          <div>
+            <div class="ci-label">WhatsApp</div>
+            <div class="ci-value">+506 0000-0000</div>
+          </div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="contact-item">
+          <div class="ci-ico">📸</div>
+          <div>
+            <div class="ci-label">Instagram</div>
+            <div class="ci-value">@sofiarce.visual</div>
+          </div>
+        </a>
+        <a href="https://behance.net" target="_blank" class="contact-item">
+          <div class="ci-ico">🎨</div>
+          <div>
+            <div class="ci-label">Behance</div>
+            <div class="ci-value">behance.net/sofiarce</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" placeholder="Tu nombre completo" required/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="tu@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label for="servicio">Servicio de interés</label>
+          <select id="servicio">
+            <option value="">Seleccioná un servicio…</option>
+            <option>Fotografía</option>
+            <option>Diseño gráfico</option>
+            <option>Ilustración</option>
+            <option>Branding visual</option>
+            <option>Dirección de arte</option>
+            <option>Contenido para redes</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Contame sobre tu proyecto</label>
+          <textarea id="mensaje" placeholder="¿Qué tenés en mente? Cualquier detalle ayuda…" required></textarea>
+        </div>
+        <button type="submit" class="btn-send" id="send-btn">Enviar mensaje →</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">Sofía<span>.</span></span>
+        <p>Creativa visual especializada en fotografía, diseño e ilustración. Transformo ideas en imágenes que conectan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#services">Fotografía</a></li>
+          <li><a href="#services">Diseño gráfico</a></li>
+          <li><a href="#services">Ilustración</a></li>
+          <li><a href="#services">Branding visual</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Portafolio</h4>
+        <ul>
+          <li><a href="#gallery">Todos los trabajos</a></li>
+          <li><a href="#gallery">Fotografía</a></li>
+          <li><a href="#gallery">Diseño</a></li>
+          <li><a href="#gallery">Ilustración</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@sofiarce.com">hola@sofiarce.com</a></li>
+          <li><a href="https://wa.me/50600000000" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+          <li><span>Costa Rica 🇨🇷</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="footer-year"></span> Sofía Arce. Todos los derechos reservados.</span>
+      <div style="display:flex;gap:1.5rem">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/creativecanvas.js"></script>
+</body>
+</html>
