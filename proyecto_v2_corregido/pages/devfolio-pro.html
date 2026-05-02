@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alex Ramírez — Frontend Developer</title>
+  <meta name="description" content="Frontend Developer especializado en React, Next.js y experiencias web modernas. Disponible para proyectos freelance."/>
+  <link rel="stylesheet" href="../css/devfolio-pro.css"/>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-bracket">{</span>
+      <span class="logo-name">alex</span>
+      <span class="logo-dot">.dev</span>
+      <span class="logo-bracket">}</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">sobre_mi</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#projects">proyectos</a></li>
+      <li><a href="#experience">experiencia</a></li>
+      <li><a href="#contact">contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" id="theme-btn" title="Cambiar tema">🌙</button>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="#contact" class="btn-nav">Contratame →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-glow"></div>
+    <div class="hero-bg-glow-2"></div>
+  </div>
+
+  <div class="container hero-inner">
+
+    <!-- Left -->
+    <div>
+      <div class="hero-status">
+        <span class="status-dot"></span>
+        Disponible para proyectos
+      </div>
+
+      <div class="hero-greeting">// Hola, soy</div>
+
+      <h1 class="hero-h1">
+        <span class="name-highlight">Alex Ramírez</span>
+      </h1>
+
+      <div class="hero-role">
+        <span class="hero-role-prefix">const role = "</span>
+        <span class="typing-text">Frontend Developer</span>
+        <span class="cursor"></span>
+        <span class="hero-role-prefix">"</span>
+      </div>
+
+      <p class="hero-p">
+        Construyo interfaces web rápidas, accesibles y visualmente impactantes.
+        Me especializo en React y el ecosistema moderno de JavaScript para
+        crear experiencias que los usuarios recuerdan.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-accent">Ver proyectos →</a>
+        <a href="#contact" class="btn btn-outline">Contactarme</a>
+      </div>
+
+      <div class="hero-stack">
+        <span class="hero-stack-label">stack:</span>
+        <div class="stack-badges">
+          <span class="stack-badge">React</span>
+          <span class="stack-badge">Next.js</span>
+          <span class="stack-badge">TypeScript</span>
+          <span class="stack-badge">Tailwind</span>
+          <span class="stack-badge">Node.js</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Code card -->
+    <div class="hero-visual">
+      <div style="position:relative;">
+        <div class="code-card">
+          <div class="code-titlebar">
+            <div class="code-dot red"></div>
+            <div class="code-dot yellow"></div>
+            <div class="code-dot green"></div>
+            <span class="code-filename">developer.js</span>
+          </div>
+          <div class="code-body">
+            <div class="code-line"><span class="code-ln">1</span><span class="kw">const</span> <span class="fn">developer</span> = {</div>
+            <div class="code-line"><span class="code-ln">2</span>&nbsp;&nbsp;<span class="prop">name</span>: <span class="str">"Alex Ramírez"</span>,</div>
+            <div class="code-line"><span class="code-ln">3</span>&nbsp;&nbsp;<span class="prop">role</span>: <span class="str">"Frontend Dev"</span>,</div>
+            <div class="code-line"><span class="code-ln">4</span>&nbsp;&nbsp;<span class="prop">experience</span>: <span class="val">4</span>,</div>
+            <div class="code-line"><span class="code-ln">5</span>&nbsp;&nbsp;<span class="prop">skills</span>: [</div>
+            <div class="code-line"><span class="code-ln">6</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"React"</span>, <span class="str">"Next.js"</span>,</div>
+            <div class="code-line"><span class="code-ln">7</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"TypeScript"</span>, <span class="str">"Node"</span></div>
+            <div class="code-line"><span class="code-ln">8</span>&nbsp;&nbsp;],</div>
+            <div class="code-line"><span class="code-ln">9</span>&nbsp;&nbsp;<span class="prop">available</span>: <span class="val">true</span>,</div>
+            <div class="code-line"><span class="code-ln">10</span>};</div>
+            <div class="code-line"><span class="code-ln">11</span></div>
+            <div class="code-line"><span class="code-ln">12</span><span class="cmt">// ¿Trabajamos juntos? 🚀</span></div>
+            <div class="code-output">developer.available → true ✓</div>
+          </div>
+        </div>
+
+        <div class="hero-float hf-1">
+          <span class="hf-ico">⭐</span>
+          4.9 en GitHub
+        </div>
+        <div class="hero-float hf-2">
+          <span class="hf-ico">🚀</span>
+          +30 proyectos
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="container about-inner">
+
+    <div class="about-img-wrap reveal">
+      <div class="about-deco about-deco-1"></div>
+      <div class="about-deco about-deco-2"></div>
+      <div class="about-img-frame">👨‍💻</div>
+      <div class="about-badge ab-1">
+        <span>🏆</span> Top Rated Dev
+      </div>
+      <div class="about-badge ab-2">
+        <span>📍</span> Costa Rica 🇨🇷
+      </div>
+    </div>
+
+    <div class="about-content reveal">
+      <div class="section-tag">sobre_mi</div>
+      <h2 class="section-title">Código limpio,<br><span>resultados reales</span></h2>
+      <p>
+        Soy un desarrollador frontend con más de 4 años de experiencia construyendo
+        productos web que combinan rendimiento, accesibilidad y diseño de calidad.
+      </p>
+      <p>
+        Me apasiona el detalle: desde la arquitectura de componentes hasta las micro-animaciones
+        que hacen que una interfaz se sienta viva. Trabajo bien tanto solo como en equipo,
+        y me adapto rápido a nuevas tecnologías y contextos.
+      </p>
+      <p>
+        Actualmente disponible para proyectos freelance y oportunidades remotas.
+      </p>
+
+      <div class="about-facts">
+        <div class="about-fact">
+          <div class="af-num">4+</div>
+          <div class="af-label">Años de experiencia</div>
+        </div>
+        <div class="about-fact">
+          <div class="af-num">30+</div>
+          <div class="af-label">Proyectos completados</div>
+        </div>
+        <div class="about-fact">
+          <div class="af-num">15+</div>
+          <div class="af-label">Clientes satisfechos</div>
+        </div>
+        <div class="about-fact">
+          <div class="af-num">100%</div>
+          <div class="af-label">Entregas a tiempo</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+        <a href="#projects" class="btn btn-accent">Ver mi trabajo →</a>
+        <a href="#" class="btn btn-outline">Descargar CV</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SKILLS
+══════════════════════════════════════ -->
+<section class="skills" id="skills">
+  <div class="container">
+    <div class="skills-header reveal">
+      <div class="section-tag">skills</div>
+      <h2 class="section-title">Mi <span>stack técnico</span></h2>
+      <p class="section-sub" style="margin:0 auto">Tecnologías con las que trabajo diariamente y en las que tengo experiencia sólida.</p>
+    </div>
+
+    <div class="skills-tabs reveal">
+      <button class="skills-tab active" data-filter="all">Todos</button>
+      <button class="skills-tab" data-filter="frontend">Frontend</button>
+      <button class="skills-tab" data-filter="backend">Backend</button>
+      <button class="skills-tab" data-filter="tools">Herramientas</button>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal" data-cat="frontend">
+        <span class="skill-ico">⚛️</span>
+        <div class="skill-name">React</div>
+        <div class="skill-level">Avanzado</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="frontend">
+        <span class="skill-ico">▲</span>
+        <div class="skill-name">Next.js</div>
+        <div class="skill-level">Avanzado</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="frontend">
+        <span class="skill-ico">📘</span>
+        <div class="skill-name">TypeScript</div>
+        <div class="skill-level">Avanzado</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="frontend">
+        <span class="skill-ico">🎨</span>
+        <div class="skill-name">Tailwind CSS</div>
+        <div class="skill-level">Avanzado</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="frontend">
+        <span class="skill-ico">🟡</span>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-level">Avanzado</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="frontend">
+        <span class="skill-ico">🌊</span>
+        <div class="skill-name">Framer Motion</div>
+        <div class="skill-level">Intermedio</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="backend">
+        <span class="skill-ico">🟢</span>
+        <div class="skill-name">Node.js</div>
+        <div class="skill-level">Intermedio</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="backend">
+        <span class="skill-ico">🗄️</span>
+        <div class="skill-name">PostgreSQL</div>
+        <div class="skill-level">Intermedio</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="backend">
+        <span class="skill-ico">🔺</span>
+        <div class="skill-name">Supabase</div>
+        <div class="skill-level">Intermedio</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="tools">
+        <span class="skill-ico">🐙</span>
+        <div class="skill-name">Git / GitHub</div>
+        <div class="skill-level">Avanzado</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="tools">
+        <span class="skill-ico">🎭</span>
+        <div class="skill-name">Figma</div>
+        <div class="skill-level">Intermedio</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="tools">
+        <span class="skill-ico">☁️</span>
+        <div class="skill-name">Vercel / AWS</div>
+        <div class="skill-level">Intermedio</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════ -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="projects-header">
+      <div class="reveal">
+        <div class="section-tag">proyectos</div>
+        <h2 class="section-title">Lo que he <span>construido</span></h2>
+      </div>
+      <div class="reveal">
+        <a href="https://github.com" target="_blank" class="btn btn-outline" style="font-size:.82rem;padding:10px 20px">Ver más en GitHub →</a>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-img">
+          🛒
+          <div class="project-overlay">
+            <a href="#" class="project-link" title="Ver demo">👁</a>
+            <a href="#" class="project-link github" title="Ver código">💻</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">Next.js</span>
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag alt">Stripe</span>
+          </div>
+          <h3>ShopNext — E-commerce</h3>
+          <p>Tienda online completa con carrito, pagos con Stripe, dashboard de admin y gestión de inventario en tiempo real.</p>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:.1s">
+        <div class="project-featured">Destacado</div>
+        <div class="project-img">
+          📊
+          <div class="project-overlay">
+            <a href="#" class="project-link" title="Ver demo">👁</a>
+            <a href="#" class="project-link github" title="Ver código">💻</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag alt">Supabase</span>
+            <span class="project-tag">Recharts</span>
+          </div>
+          <h3>DataViz Dashboard</h3>
+          <p>Dashboard de análisis de datos con gráficas interactivas, filtros en tiempo real y exportación a CSV/PDF.</p>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:.2s">
+        <div class="project-img">
+          💬
+          <div class="project-overlay">
+            <a href="#" class="project-link" title="Ver demo">👁</a>
+            <a href="#" class="project-link github" title="Ver código">💻</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag alt">Socket.io</span>
+            <span class="project-tag">Node.js</span>
+          </div>
+          <h3>ChatApp Real-time</h3>
+          <p>Aplicación de mensajería en tiempo real con rooms, notificaciones push y soporte para archivos multimedia.</p>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img">
+          🎯
+          <div class="project-overlay">
+            <a href="#" class="project-link" title="Ver demo">👁</a>
+            <a href="#" class="project-link github" title="Ver código">💻</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">Next.js</span>
+            <span class="project-tag">Tailwind</span>
+            <span class="project-tag alt">OpenAI</span>
+          </div>
+          <h3>AI Task Manager</h3>
+          <p>Gestor de tareas con sugerencias inteligentes por IA, priorización automática y reportes de productividad.</p>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:.1s">
+        <div class="project-img">
+          🏠
+          <div class="project-overlay">
+            <a href="#" class="project-link" title="Ver demo">👁</a>
+            <a href="#" class="project-link github" title="Ver código">💻</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag alt">Google Maps</span>
+            <span class="project-tag">PostgreSQL</span>
+          </div>
+          <h3>RealEstate Finder</h3>
+          <p>Plataforma de búsqueda inmobiliaria con mapa interactivo, filtros avanzados y sistema de favoritos.</p>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:.2s">
+        <div class="project-img">
+          🎵
+          <div class="project-overlay">
+            <a href="#" class="project-link" title="Ver demo">👁</a>
+            <a href="#" class="project-link github" title="Ver código">💻</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag alt">Spotify API</span>
+            <span class="project-tag">Framer</span>
+          </div>
+          <h3>Moodify — Music App</h3>
+          <p>App que recomienda música según el estado de ánimo usando la API de Spotify con animaciones fluidas.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     EXPERIENCE
+══════════════════════════════════════ -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:3.5rem">
+      <div class="section-tag">experiencia</div>
+      <h2 class="section-title">Mi <span>trayectoria</span></h2>
+      <p class="section-sub">Los proyectos y empresas que me formaron como desarrollador.</p>
+    </div>
+
+    <div class="exp-inner">
+      <div class="exp-timeline">
+
+        <div class="exp-item active">
+          <div class="exp-dot-wrap">
+            <div class="exp-dot">💼</div>
+          </div>
+          <div class="exp-meta">
+            <div class="exp-period">2023 — Presente</div>
+            <div class="exp-role">Senior Frontend Developer</div>
+            <div class="exp-company">TechCorp Solutions</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot-wrap">
+            <div class="exp-dot">🚀</div>
+          </div>
+          <div class="exp-meta">
+            <div class="exp-period">2021 — 2023</div>
+            <div class="exp-role">Frontend Developer</div>
+            <div class="exp-company">Startup Innovate</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot-wrap">
+            <div class="exp-dot">🌱</div>
+          </div>
+          <div class="exp-meta">
+            <div class="exp-period">2020 — 2021</div>
+            <div class="exp-role">Junior Web Developer</div>
+            <div class="exp-company">Digital Agency CR</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Detail panel populated by JS -->
+      <div class="exp-detail" id="exp-detail"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+
+    <div class="reveal">
+      <div class="section-tag">contacto</div>
+      <h2 class="section-title">¿Trabajamos<br><span>juntos?</span></h2>
+      <p>Estoy disponible para proyectos freelance, trabajo remoto y oportunidades full-time. Escribime y respondé en menos de 24 horas.</p>
+
+      <div class="contact-items">
+        <a href="mailto:alex@dev.com" class="contact-item">
+          <div class="ci-ico">📧</div>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-value">alex@dev.com</div>
+          </div>
+        </a>
+        <a href="https://wa.me/50600000000" target="_blank" class="contact-item">
+          <div class="ci-ico">💬</div>
+          <div>
+            <div class="ci-label">WhatsApp</div>
+            <div class="ci-value">+506 0000-0000</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="contact-item">
+          <div class="ci-ico">💼</div>
+          <div>
+            <div class="ci-label">LinkedIn</div>
+            <div class="ci-value">linkedin.com/in/alexdev</div>
+          </div>
+        </a>
+        <a href="https://github.com" target="_blank" class="contact-item">
+          <div class="ci-ico">🐙</div>
+          <div>
+            <div class="ci-label">GitHub</div>
+            <div class="ci-value">github.com/alexdev</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Tu nombre" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="tu@email.com" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="asunto">Asunto</label>
+          <input type="text" id="asunto" placeholder="¿En qué puedo ayudarte?"/>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" placeholder="Contame sobre tu proyecto…" required></textarea>
+        </div>
+        <button type="submit" class="btn-send" id="send-btn">Enviar mensaje →</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span>{</span> alex<span>.dev</span> <span>}</span> ·
+      Hecho con ❤️ y mucho ☕ ·
+      © <span id="footer-year"></span>
+    </div>
+    <div class="footer-links">
+      <a href="#hero">Inicio</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#contact">Contacto</a>
+      <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/devfolio-pro.js"></script>
+</body>
+</html>

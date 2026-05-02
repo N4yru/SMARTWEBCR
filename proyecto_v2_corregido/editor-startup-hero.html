@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editor de Plantilla - Startup Hero</title>
+  <link rel="stylesheet" href="css/editor-startup-hero.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="editor-header">
+  <div class="editor-title">
+    <h1>🎨 Editor de Plantillas</h1>
+    <span>Startup Hero</span>
+  </div>
+  <div class="editor-actions">
+    <button class="btn btn-outline" onclick="resetConfig()">↺ Resetear</button>
+    <button class="btn btn-primary" onclick="previewTemplate()">👁 Vista previa</button>
+    <button class="btn btn-success" onclick="saveConfig()">💾 Guardar</button>
+  </div>
+</header>
+
+<!-- Main Layout -->
+<div class="editor-layout">
+
+  <!-- Sidebar -->
+  <aside class="editor-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Secciones</div>
+      <ul class="sidebar-nav">
+        <li><a href="#panel-general" class="active" data-section="general"><span class="icon">⚙️</span> General</a></li>
+        <li><a href="#panel-colors" data-section="colors"><span class="icon">🎨</span> Colores</a></li>
+        <li><a href="#panel-nav" data-section="nav"><span class="icon">🧭</span> Navegación</a></li>
+        <li><a href="#panel-hero" data-section="hero"><span class="icon">🌟</span> Hero</a></li>
+        <li><a href="#panel-trust" data-section="trust"><span class="icon">🤝</span> Trust Bar</a></li>
+        <li><a href="#panel-features" data-section="features"><span class="icon">✨</span> Features</a></li>
+        <li><a href="#panel-dashboard" data-section="dashboard"><span class="icon">📊</span> Dashboard</a></li>
+        <li><a href="#panel-pricing" data-section="pricing"><span class="icon">💰</span> Precios</a></li>
+        <li><a href="#panel-cta" data-section="cta"><span class="icon">📣</span> CTA</a></li>
+        <li><a href="#panel-footer" data-section="footer"><span class="icon">📄</span> Footer</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <main class="editor-content">
+
+    <!-- General -->
+    <section id="panel-general" class="section-panel active">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Configuración General</h2>
+            <p class="panel-subtitle">Información básica del producto</p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nombre del Producto</label>
+            <input type="text" class="form-input" id="general-productName" placeholder="ProConsult">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Logo (Emoji/Símbolo)</label>
+            <input type="text" class="form-input" id="general-logoEmoji" placeholder="✦" maxlength="4">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Tagline</label>
+          <input type="text" class="form-input" id="general-tagline" placeholder="Servicios profesionales de élite">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Descripción</label>
+          <textarea class="form-textarea" id="general-description" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email de Contacto</label>
+          <input type="email" class="form-input" id="contact-email" placeholder="hola@proconsult.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">WhatsApp (código país + número)</label>
+          <input type="text" class="form-input" id="contact-whatsapp" placeholder="50600000000">
+          <p class="helper-text">Sin el signo +. Ej: 50600000000</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Colors -->
+    <section id="panel-colors" class="section-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Colores</h2>
+            <p class="panel-subtitle">Personalizá la paleta de colores</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Color de Acento (Principal)</label>
+          <div class="color-input-wrapper">
+            <input type="color" class="color-picker" id="colors-accent-picker">
+            <input type="text" class="form-input color-value" id="colors-accent" placeholder="#0EA5E9">
+          </div>
+          <p class="helper-text">Color principal de botones y enlaces (azul por defecto)</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Color Dorado (Secondary)</label>
+          <div class="color-input-wrapper">
+            <input type="color" class="color-picker" id="colors-gold-picker">
+            <input type="text" class="form-input color-value" id="colors-gold" placeholder="#C9A84C">
+          </div>
+          <p class="helper-text">Para elementos destacados, badges y gradientes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nav -->
+    <section id="panel-nav" class="section-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Navegación</h2>
+            <p class="panel-subtitle">Menú principal y CTA</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Texto del CTA</label>
+          <input type="text" class="form-input" id="nav-ctaText" placeholder="Consulta gratis →">
+        </div>
+
+        <h3 style="margin:1.5rem 0 1rem;font-size:0.95rem;color:var(--text2)">Enlaces del Menú</h3>
+        <div class="repeater" id="nav-repeater"></div>
+        <button class="btn-add" onclick="addNavLink()">+ Agregar enlace</button>
+      </div>
+    </section>
+
+    <!-- Hero -->
+    <section id="panel-hero" class="section-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Hero Section</h2>
+            <p class="panel-subtitle">La primera impresión de tu sitio</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Badge Text</label>
+          <input type="text" class="form-input" id="hero-badgeText" placeholder="✦ Servicios profesionales de élite">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Título Principal</label>
+          <input type="text" class="form-input" id="hero-title" placeholder="Estrategia que transforma resultados.">
+          <p class="helper-text">Usá em (cursiva) y strong (negrito) para énfasis</p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Palabra en Cursiva (em)</label>
+            <input type="text" class="form-input" id="hero-titleEm" placeholder="transforma">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Palabra en Negrito (strong)</label>
+            <input type="text" class="form-input" id="hero-titleStrong" placeholder="resultados.">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Descripción</label>
+          <textarea class="form-textarea" id="hero-description" rows="3"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">CTA Primario</label>
+            <input type="text" class="form-input" id="hero-ctaPrimary" placeholder="Empezar ahora →">
+          </div>
+          <div class="form-group">
+            <label class="form-label">CTA Secundario</label>
+            <input type="text" class="form-input" id="hero-ctaSecondary" placeholder="Ver servicios">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Texto de Prueba Social</label>
+          <input type="text" class="form-input" id="hero-socialProofText" placeholder="+120 clientes satisfechos con resultados comprobados">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Estrellas</label>
+          <input type="text" class="form-input" id="hero-socialProofStars" placeholder="★★★★★" maxlength="10">
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section id="panel-trust" class="section-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Trust Bar</h2>
+            <p class="panel-subtitle">Logos de empresas clientes</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Label</label>
+          <input type="text" class="form-input" id="trust-label" placeholder="Con la confianza de empresas líderes">
+        </div>
+
+        <h3 style="margin:1.5rem 0 1rem;font-size:0.95rem;color:var(--text2)">Logos (texto)</h3>
+        <div class="repeater" id="trust-repeater"></div>
+        <button class="btn-add" onclick="addTrustLogo()">+ Agregar logo</button>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="panel-features" class="section-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Features / Servicios</h2>
+            <p class="panel-subtitle">Características principales</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Eyebrow</label>
+          <input type="text" class="form-input" id="features-eyebrow" placeholder="Nuestros servicios">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Título</label>
+          <input type="text" class="form-input" id="features-title" placeholder="Todo lo que necesitás para crecer con claridad">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Palabra en Cursiva</label>
+          <input type="text" class="form-input" id="features-titleEm" placeholder="crecer con claridad">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Subtítulo</label>
+          <textarea class="form-textarea" id="features-subtitle" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Texto del CTA</label>
+          <input type="text" class="form-input" id="features-ctaText" placeholder="Ver todos los servicios →">
+        </div>
+
+        <h3 style="margin:1.5rem 0 1rem;font-size:0.95rem;color:var(--text2)">Items de Features</h3>
+        <div class="repeater" id="features-repeater"></div>
+        <button class="btn-add" onclick="addFeatureItem()">+ Agregar feature</button>
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="panel-dashboard" class="section-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Dashboard Visual</h2>
+            <p class="panel-subtitle">El panel que aparece en el hero</p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Título del Dashboard</label>
+            <input type="text" class="form-input" id="dashboard-title" placeholder="Panel de Resultados">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subtítulo</label>
+            <input type="text" class="form-input" id="dashboard-subtitle" placeholder="Actualizado en tiempo real">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Emoji/Icono del Avatar</label>
+          <input type="text" class="form-input" id="dashboard-avatar" placeholder="📊" maxlength="4">
+        </div>
+
+        <h3 style="margin:1.5rem 0 1rem;font-size:0.95rem;color:var(--text2)">Estadísticas</h3>
+        <div class="repeater" id="dashboard-stats-repeater"></div>
+        <button class="btn-add" onclick="addDashboardStat()">+ Agregar estadística</button>
+
+        <h3 style="margin:1.5rem 0 1rem;font-size:0.95rem;color:var(--text2)">Barras de Progreso</h3>
+        <div class="repeater" id="dashboard-progress-repeater"></div>
+        <button class="btn-add" onclick="addDashboardProgress()">+ Agregar barra de progreso</button>
+
+        <h3 style="margin:1.5rem 0 1rem;font-size:0.95rem;color:var(--text2)">Tags</h3>
+        <div class="repeater" id="dashboard-tags-repeater"></div>
+        <button class="btn-add" onclick="addDashboardTag()">+ Agregar tag</button>
+
+        <h3 style="margin:1.5rem 0 1rem;font-size:0.95rem;color:var(--text2)">Badges Flotantes</h3>
+        <div class="repeater" id="dashboard-float-repeater"></div>
+        <button class="btn-add" onclick="addDashboardFloat()">+ Agregar badge flotante</button>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="panel-pricing" class="section-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Precios</h2>
+            <p class="panel-subtitle">Configurá tus planes y precios</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Eyebrow</label>
+          <input type="text" class="form-input" id="pricing-eyebrow" placeholder="Planes y precios">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Título</label>
+          <input type="text" class="form-input" id="pricing-title" placeholder="Inversión clara, resultados reales">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Palabra en Cursiva</label>
+          <input type="text" class="form-input" id="pricing-titleEm" placeholder="resultados reales">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Subtítulo</label>
+          <textarea class="form-textarea" id="pricing-subtitle" rows="2"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Label Mensual</label>
+            <input type="text" class="form-input" id="pricing-toggleLabel1" placeholder="Mensual">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Label Anual</label>
+            <input type="text" class="form-input" id="pricing-toggleLabel2" placeholder="Anual">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Badge de Descuento</label>
+          <input type="text" class="form-input" id="pricing-saveBadge" placeholder="-20%">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Texto Footer</label>
+          <input type="text" class="form-input" id="pricing-footerText" placeholder="Sin contratos largos · Cancelá cuando quieras">
+        </div>
+
+        <h3 style="margin:1.5rem 0 1rem;font-size:0.95rem;color:var(--text2)">Planes</h3>
+        <div class="repeater" id="pricing-repeater"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="panel-cta" class="section-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Call to Action</h2>
+            <p class="panel-subtitle">El empujón final para convertir</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Eyebrow</label>
+          <input type="text" class="form-input" id="cta-eyebrow" placeholder="Empezá hoy">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Título</label>
+          <input type="text" class="form-input" id="cta-title" placeholder="¿Listo para llevar tu empresa al siguiente nivel?">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Palabra en Cursiva</label>
+          <input type="text" class="form-input" id="cta-titleEm" placeholder="nivel">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Descripción</label>
+          <textarea class="form-textarea" id="cta-description" rows="3"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">CTA Primario</label>
+            <input type="text" class="form-input" id="cta-ctaPrimary" placeholder="Agendar consulta gratis →">
+          </div>
+          <div class="form-group">
+            <label class="form-label">CTA Secundario</label>
+            <input type="text" class="form-input" id="cta-ctaSecondary" placeholder="WhatsApp">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nota</label>
+          <input type="text" class="form-input" id="cta-note" placeholder="Sin tarjeta de crédito · Respuesta en menos de 24 horas">
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="panel-footer" class="section-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Footer</h2>
+            <p class="panel-subtitle">Pie de página y enlaces</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Descripción</label>
+          <textarea class="form-textarea" id="footer-description" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Texto de Copyright</label>
+          <input type="text" class="form-input" id="footer-copyright" placeholder="© ProConsult. Todos los derechos reservados.">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Ubicación</label>
+            <input type="text" class="form-input" id="footer-location" placeholder="Costa Rica 🇨🇷">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Horario</label>
+            <input type="text" class="form-input" id="footer-hours" placeholder="Lun–Vie 8am–6pm">
+          </div>
+        </div>
+
+        <h3 style="margin:1.5rem 0 1rem;font-size:0.95rem;color:var(--text2)">Enlaces por Columna</h3>
+
+        <div class="form-group">
+          <label class="form-label">Servicios (separados por coma)</label>
+          <input type="text" class="form-input" id="footer-links-servicios">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Empresa (separados por coma)</label>
+          <input type="text" class="form-input" id="footer-links-empresa">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Contacto (separados por coma)</label>
+          <input type="text" class="form-input" id="footer-links-contacto">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Enlaces Legales (separados por coma)</label>
+          <input type="text" class="form-input" id="footer-legalLinks" placeholder="Privacidad, Términos">
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Preview Panel -->
+<div class="preview-panel">
+  <h4>Acciones</h4>
+  <div class="preview-buttons">
+    <a href="pages/startup-hero.html" target="_blank" class="preview-btn">🔗 Ver Original</a>
+    <button class="preview-btn" onclick="saveConfig()">💾 Guardar</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">Configuración guardada ✅</div>
+
+<script>
+// ============================================
+// CONFIGURACIÓN Y ESTADO
+// ============================================
+
+let config = {};
+const CONFIG_URL = 'config/startup-hero-config.json';
+
+// ============================================
+// CARGA INICIAL
+// ============================================
+
+async function loadConfig() {
+  try {
+    const response = await fetch(CONFIG_URL + '?t=' + Date.now());
+    config = await response.json();
+    populateForm();
+    renderRepeaters();
+  } catch (error) {
+    showToast('Error al cargar configuración: ' + error.message, true);
+  }
+}
+
+// ============================================
+// POPULAR FORMULARIO
+// ============================================
+
+function populateForm() {
+  // General
+  document.getElementById('general-productName').value = config.general?.productName || '';
+  document.getElementById('general-logoEmoji').value = config.general?.logoEmoji || '';
+  document.getElementById('general-tagline').value = config.general?.tagline || '';
+  document.getElementById('general-description').value = config.general?.description || '';
+  document.getElementById('contact-email').value = config.contact?.email || '';
+  document.getElementById('contact-whatsapp').value = config.contact?.whatsapp || '';
+
+  // Colors
+  document.getElementById('colors-accent').value = config.colors?.accent || '';
+  document.getElementById('colors-accent-picker').value = config.colors?.accent || '#0EA5E9';
+  document.getElementById('colors-gold').value = config.colors?.gold || '';
+  document.getElementById('colors-gold-picker').value = config.colors?.gold || '#C9A84C';
+
+  // Nav
+  document.getElementById('nav-ctaText').value = config.nav?.ctaText || '';
+
+  // Hero
+  document.getElementById('hero-badgeText').value = config.hero?.badgeText || '';
+  document.getElementById('hero-title').value = config.hero?.title || '';
+  document.getElementById('hero-titleEm').value = config.hero?.titleEm || '';
+  document.getElementById('hero-titleStrong').value = config.hero?.titleStrong || '';
+  document.getElementById('hero-description').value = config.hero?.description || '';
+  document.getElementById('hero-ctaPrimary').value = config.hero?.ctaPrimary || '';
+  document.getElementById('hero-ctaSecondary').value = config.hero?.ctaSecondary || '';
+  document.getElementById('hero-socialProofText').value = config.hero?.socialProofText || '';
+  document.getElementById('hero-socialProofStars').value = config.hero?.socialProofStars || '';
+
+  // Trust
+  document.getElementById('trust-label').value = config.trustBar?.label || '';
+
+  // Features
+  document.getElementById('features-eyebrow').value = config.features?.eyebrow || '';
+  document.getElementById('features-title').value = config.features?.title || '';
+  document.getElementById('features-titleEm').value = config.features?.titleEm || '';
+  document.getElementById('features-subtitle').value = config.features?.subtitle || '';
+  document.getElementById('features-ctaText').value = config.features?.ctaText || '';
+
+  // Dashboard
+  document.getElementById('dashboard-title').value = config.dashboard?.title || '';
+  document.getElementById('dashboard-subtitle').value = config.dashboard?.subtitle || '';
+  document.getElementById('dashboard-avatar').value = config.dashboard?.avatarEmoji || '📊';
+
+  // Pricing
+  document.getElementById('pricing-eyebrow').value = config.pricing?.eyebrow || '';
+  document.getElementById('pricing-title').value = config.pricing?.title || '';
+  document.getElementById('pricing-titleEm').value = config.pricing?.titleEm || '';
+  document.getElementById('pricing-subtitle').value = config.pricing?.subtitle || '';
+  document.getElementById('pricing-toggleLabel1').value = config.pricing?.toggleLabel1 || '';
+  document.getElementById('pricing-toggleLabel2').value = config.pricing?.toggleLabel2 || '';
+  document.getElementById('pricing-saveBadge').value = config.pricing?.saveBadge || '';
+  document.getElementById('pricing-footerText').value = config.pricing?.footerText || '';
+
+  // CTA
+  document.getElementById('cta-eyebrow').value = config.cta?.eyebrow || '';
+  document.getElementById('cta-title').value = config.cta?.title || '';
+  document.getElementById('cta-titleEm').value = config.cta?.titleEm || '';
+  document.getElementById('cta-description').value = config.cta?.description || '';
+  document.getElementById('cta-ctaPrimary').value = config.cta?.ctaPrimary || '';
+  document.getElementById('cta-ctaSecondary').value = config.cta?.ctaSecondary || '';
+  document.getElementById('cta-note').value = config.cta?.note || '';
+
+  // Footer
+  document.getElementById('footer-description').value = config.footer?.description || '';
+  document.getElementById('footer-copyright').value = config.footer?.copyright || '';
+  document.getElementById('footer-location').value = config.footer?.location || '';
+  document.getElementById('footer-hours').value = config.footer?.hours || '';
+  document.getElementById('footer-links-servicios').value = config.footer?.columns?.servicios?.join(', ') || '';
+  document.getElementById('footer-links-empresa').value = config.footer?.columns?.empresa?.join(', ') || '';
+  document.getElementById('footer-links-contacto').value = config.footer?.columns?.contacto?.join(', ') || '';
+  document.getElementById('footer-legalLinks').value = config.footer?.legalLinks?.join(', ') || '';
+}
+
+// ============================================
+// RENDERERS
+// ============================================
+
+function renderRepeaters() {
+  renderNavLinks();
+  renderTrustLogos();
+  renderFeatures();
+  renderDashboardStats();
+  renderDashboardProgress();
+  renderDashboardTags();
+  renderDashboardFloats();
+  renderPricing();
+}
+
+function renderNavLinks() {
+  const container = document.getElementById('nav-repeater');
+  container.innerHTML = '';
+
+  (config.nav?.links || []).forEach((item, index) => {
+    container.innerHTML += `
+      <div class="repeater-item">
+        <div class="repeater-header">
+          <span class="repeater-title">Enlace ${index + 1}</span>
+          <div class="repeater-actions">
+            <button class="btn-icon" onclick="moveNavLink(${index}, -1)">↑</button>
+            <button class="btn-icon" onclick="moveNavLink(${index}, 1)">↓</button>
+            <button class="btn-icon delete" onclick="deleteNavLink(${index})">✕</button>
+          </div>
+        </div>
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Texto"
+                 value="${escapeHtml(item.text || '')}"
+                 onchange="updateNavLink(${index}, 'text', this.value)">
+          <input type="text" class="form-input" placeholder="Href (#section)"
+                 value="${escapeHtml(item.href || '')}"
+                 onchange="updateNavLink(${index}, 'href', this.value)">
+        </div>
+      </div>
+    `;
+  });
+}
+
+function renderTrustLogos() {
+  const container = document.getElementById('trust-repeater');
+  container.innerHTML = '';
+
+  (config.trustBar?.logos || []).forEach((item, index) => {
+    container.innerHTML += `
+      <div class="repeater-item">
+        <div class="repeater-header">
+          <span class="repeater-title">Logo ${index + 1}</span>
+          <div class="repeater-actions">
+            <button class="btn-icon" onclick="moveTrustLogo(${index}, -1)">↑</button>
+            <button class="btn-icon" onclick="moveTrustLogo(${index}, 1)">↓</button>
+            <button class="btn-icon delete" onclick="deleteTrustLogo(${index})">✕</button>
+          </div>
+        </div>
+        <input type="text" class="form-input" value="${escapeHtml(item)}"
+               onchange="updateTrustLogo(${index}, this.value)">
+      </div>
+    `;
+  });
+}
+
+function renderFeatures() {
+  const container = document.getElementById('features-repeater');
+  container.innerHTML = '';
+
+  (config.features?.items || []).forEach((item, index) => {
+    container.innerHTML += `
+      <div class="repeater-item">
+        <div class="repeater-header">
+          <span class="repeater-title">${item.icon || '✨'} ${item.title || 'Feature ' + (index + 1)}</span>
+          <div class="repeater-actions">
+            <button class="btn-icon" onclick="moveFeature(${index}, -1)">↑</button>
+            <button class="btn-icon" onclick="moveFeature(${index}, 1)">↓</button>
+            <button class="btn-icon delete" onclick="deleteFeature(${index})">✕</button>
+          </div>
+        </div>
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Icono"
+                 value="${escapeHtml(item.icon || '')}"
+                 onchange="updateFeature(${index}, 'icon', this.value)">
+          <input type="text" class="form-input" placeholder="Título"
+                 value="${escapeHtml(item.title || '')}"
+                 onchange="updateFeature(${index}, 'title', this.value)">
+        </div>
+        <textarea class="form-textarea" rows="2" placeholder="Descripción"
+                  onchange="updateFeature(${index}, 'description', this.value)"
+        >${escapeHtml(item.description || '')}</textarea>
+        <div class="toggle" style="margin-top:0.75rem">
+          <div class="toggle-switch ${item.isLarge ? 'active' : ''}"
+               onclick="toggleFeatureLarge(${index})"></div>
+          <span class="toggle-label">Card grande (ocupa 2 columnas)</span>
+        </div>
+        <div class="toggle" style="margin-top:0.5rem">
+          <div class="toggle-switch ${item.hasLink ? 'active' : ''}"
+               onclick="toggleFeatureLink(${index})"></div>
+          <span class="toggle-label">Incluir enlace "Saber más"</span>
+        </div>
+        ${item.hasLink ? `
+        <input type="text" class="form-input" placeholder="Texto del enlace"
+               value="${escapeHtml(item.linkText || '')}"
+               onchange="updateFeature(${index}, 'linkText', this.value)"
+               style="margin-top:0.5rem">
+        ` : ''}
+      </div>
+    `;
+  });
+}
+
+function renderDashboardStats() {
+  const container = document.getElementById('dashboard-stats-repeater');
+  container.innerHTML = '';
+
+  (config.dashboard?.stats || []).forEach((item, index) => {
+    container.innerHTML += `
+      <div class="repeater-item">
+        <div class="repeater-header">
+          <span class="repeater-title">Stat ${index + 1}</span>
+          <div class="repeater-actions">
+            <button class="btn-icon" onclick="moveDashboardStat(${index}, -1)">↑</button>
+            <button class="btn-icon" onclick="moveDashboardStat(${index}, 1)">↓</button>
+            <button class="btn-icon delete" onclick="deleteDashboardStat(${index})">✕</button>
+          </div>
+        </div>
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Valor"
+                 value="${escapeHtml(item.value || '')}"
+                 onchange="updateDashboardStat(${index}, 'value', this.value)">
+          <input type="text" class="form-input" placeholder="Label"
+                 value="${escapeHtml(item.label || '')}"
+                 onchange="updateDashboardStat(${index}, 'label', this.value)">
+        </div>
+      </div>
+    `;
+  });
+}
+
+function renderDashboardProgress() {
+  const container = document.getElementById('dashboard-progress-repeater');
+  container.innerHTML = '';
+
+  (config.dashboard?.progressBars || []).forEach((item, index) => {
+    container.innerHTML += `
+      <div class="repeater-item">
+        <div class="repeater-header">
+          <span class="repeater-title">Barra ${index + 1}</span>
+          <div class="repeater-actions">
+            <button class="btn-icon" onclick="moveDashboardProgress(${index}, -1)">↑</button>
+            <button class="btn-icon" onclick="moveDashboardProgress(${index}, 1)">↓</button>
+            <button class="btn-icon delete" onclick="deleteDashboardProgress(${index})">✕</button>
+          </div>
+        </div>
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Label"
+                 value="${escapeHtml(item.label || '')}"
+                 onchange="updateDashboardProgress(${index}, 'label', this.value)">
+          <input type="number" class="form-input" placeholder="Porcentaje (0-100)"
+                 value="${item.value || 0}" min="0" max="100"
+                 onchange="updateDashboardProgress(${index}, 'value', this.value)">
+        </div>
+      </div>
+    `;
+  });
+}
+
+function renderDashboardTags() {
+  const container = document.getElementById('dashboard-tags-repeater');
+  container.innerHTML = '';
+
+  (config.dashboard?.tags || []).forEach((item, index) => {
+    container.innerHTML += `
+      <div class="repeater-item">
+        <div class="repeater-header">
+          <span class="repeater-title">Tag ${index + 1}</span>
+          <div class="repeater-actions">
+            <button class="btn-icon" onclick="moveDashboardTag(${index}, -1)">↑</button>
+            <button class="btn-icon" onclick="moveDashboardTag(${index}, 1)">↓</button>
+            <button class="btn-icon delete" onclick="deleteDashboardTag(${index})">✕</button>
+          </div>
+        </div>
+        <input type="text" class="form-input" value="${escapeHtml(item)}"
+               onchange="updateDashboardTag(${index}, this.value)">
+      </div>
+    `;
+  });
+}
+
+function renderDashboardFloats() {
+  const container = document.getElementById('dashboard-float-repeater');
+  container.innerHTML = '';
+
+  (config.dashboard?.floatBadges || []).forEach((item, index) => {
+    container.innerHTML += `
+      <div class="repeater-item">
+        <div class="repeater-header">
+          <span class="repeater-title">Badge ${index + 1}</span>
+          <div class="repeater-actions">
+            <button class="btn-icon" onclick="moveDashboardFloat(${index}, -1)">↑</button>
+            <button class="btn-icon" onclick="moveDashboardFloat(${index}, 1)">↓</button>
+            <button class="btn-icon delete" onclick="deleteDashboardFloat(${index})">✕</button>
+          </div>
+        </div>
+        <input type="text" class="form-input" placeholder="Texto"
+               value="${escapeHtml(item.text || '')}"
+               onchange="updateDashboardFloat(${index}, 'text', this.value)">
+        <select class="form-select" style="margin-top:0.5rem"
+                onchange="updateDashboardFloat(${index}, 'color', this.value)">
+          <option value="green" ${item.color === 'green' ? 'selected' : ''}>Verde</option>
+          <option value="blue" ${item.color === 'blue' ? 'selected' : ''}>Azul</option>
+        </select>
+      </div>
+    `;
+  });
+}
+
+function renderPricing() {
+  const container = document.getElementById('pricing-repeater');
+  container.innerHTML = '';
+
+  (config.pricing?.plans || []).forEach((plan, index) => {
+    container.innerHTML += `
+      <div class="repeater-item">
+        <div class="repeater-header">
+          <span class="repeater-title">Plan: ${plan.name || 'Plan ' + (index + 1)}</span>
+          <div class="repeater-actions">
+            <button class="btn-icon" onclick="movePlan(${index}, -1)">↑</button>
+            <button class="btn-icon" onclick="movePlan(${index}, 1)">↓</button>
+            <button class="btn-icon delete" onclick="deletePlan(${index})">✕</button>
+          </div>
+        </div>
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="Nombre"
+                 value="${escapeHtml(plan.name || '')}"
+                 onchange="updatePlan(${index}, 'name', this.value)">
+          <div class="toggle">
+            <div class="toggle-switch ${plan.featured ? 'active' : ''}"
+                 onclick="togglePlanFeatured(${index})"></div>
+            <span class="toggle-label">Destacado</span>
+          </div>
+        </div>
+        <div class="form-row-3" style="margin-top:0.75rem">
+          <input type="text" class="form-input" placeholder="Precio Mensual"
+                 value="${escapeHtml(plan.priceMonthly || '')}"
+                 onchange="updatePlan(${index}, 'priceMonthly', this.value)">
+          <input type="text" class="form-input" placeholder="Precio Anual"
+                 value="${escapeHtml(plan.priceAnnual || '')}"
+                 onchange="updatePlan(${index}, 'priceAnnual', this.value)">
+          <input type="text" class="form-input" placeholder="CTA"
+                 value="${escapeHtml(plan.cta || '')}"
+                 onchange="updatePlan(${index}, 'cta', this.value)">
+        </div>
+        <textarea class="form-textarea" rows="2" placeholder="Descripción"
+                  style="margin-top:0.75rem"
+                  onchange="updatePlan(${index}, 'description', this.value)"
+        >${escapeHtml(plan.description || '')}</textarea>
+
+        <h4 style="margin:1rem 0 0.5rem;font-size:0.85rem;color:var(--text2)">Características</h4>
+        <div style="border:1px solid var(--border);border-radius:8px;margin-top:0.5rem">
+          ${(plan.features || []).map((feat, featIdx) => `
+            <div style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem;border-bottom:1px solid var(--border);">
+              <div class="toggle-switch ${feat.included ? 'active' : ''}"
+                   onclick="togglePlanFeature(${index}, ${featIdx})"
+                   style="width:32px;height:18px;flex-shrink:0"></div>
+              <input type="text" class="form-input"
+                     value="${escapeHtml(feat.text || '')}"
+                     onchange="updatePlanFeature(${index}, ${featIdx}, 'text', this.value)"
+                     style="flex:1;font-size:0.8rem;padding:0.4rem 0.6rem">
+              <button class="btn-icon delete" onclick="deletePlanFeature(${index}, ${featIdx})"
+                      style="width:24px;height:24px;font-size:0.8rem">✕</button>
+            </div>
+          `).join('')}
+        </div>
+        <button class="btn-add" onclick="addPlanFeature(${index})" style="margin-top:0.5rem;padding:0.4rem;font-size:0.8rem">
+          + Agregar característica
+        </button>
+      </div>
+    `;
+  });
+}
+
+// ============================================
+// UPDATE FUNCTIONS
+// ============================================
+
+function updateNavLink(index, field, value) {
+  config.nav.links[index][field] = value;
+}
+
+function updateTrustLogo(index, value) {
+  config.trustBar.logos[index] = value;
+}
+
+function updateFeature(index, field, value) {
+  config.features.items[index][field] = value;
+  renderFeatures();
+}
+
+function toggleFeatureLarge(index) {
+  config.features.items[index].isLarge = !config.features.items[index].isLarge;
+  renderFeatures();
+}
+
+function toggleFeatureLink(index) {
+  config.features.items[index].hasLink = !config.features.items[index].hasLink;
+  renderFeatures();
+}
+
+function updateDashboardStat(index, field, value) {
+  config.dashboard.stats[index][field] = value;
+}
+
+function updateDashboardProgress(index, field, value) {
+  config.dashboard.progressBars[index][field] = parseInt(value) || 0;
+}
+
+function updateDashboardTag(index, value) {
+  config.dashboard.tags[index] = value;
+}
+
+function updateDashboardFloat(index, field, value) {
+  config.dashboard.floatBadges[index][field] = value;
+}
+
+function updatePlan(index, field, value) {
+  config.pricing.plans[index][field] = value;
+  renderPricing();
+}
+
+function togglePlanFeatured(index) {
+  config.pricing.plans[index].featured = !config.pricing.plans[index].featured;
+  renderPricing();
+}
+
+function updatePlanFeature(planIdx, featIdx, field, value) {
+  config.pricing.plans[planIdx].features[featIdx][field] = value;
+  renderPricing();
+}
+
+function togglePlanFeature(planIdx, featIdx) {
+  config.pricing.plans[planIdx].features[featIdx].included =
+    !config.pricing.plans[planIdx].features[featIdx].included;
+  renderPricing();
+}
+
+// ============================================
+// MOVE/DELETE FUNCTIONS
+// ============================================
+
+function moveNavLink(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= config.nav.links.length) return;
+  [config.nav.links[index], config.nav.links[newIndex]] =
+  [config.nav.links[newIndex], config.nav.links[index]];
+  renderNavLinks();
+}
+
+function deleteNavLink(index) {
+  config.nav.links.splice(index, 1);
+  renderNavLinks();
+}
+
+function addNavLink() {
+  config.nav.links.push({ text: 'Nuevo enlace', href: '#section' });
+  renderNavLinks();
+}
+
+function moveTrustLogo(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= config.trustBar.logos.length) return;
+  [config.trustBar.logos[index], config.trustBar.logos[newIndex]] =
+  [config.trustBar.logos[newIndex], config.trustBar.logos[index]];
+  renderTrustLogos();
+}
+
+function deleteTrustLogo(index) {
+  config.trustBar.logos.splice(index, 1);
+  renderTrustLogos();
+}
+
+function addTrustLogo() {
+  config.trustBar.logos.push('Nuevo logo');
+  renderTrustLogos();
+}
+
+function moveFeature(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= config.features.items.length) return;
+  [config.features.items[index], config.features.items[newIndex]] =
+  [config.features.items[newIndex], config.features.items[index]];
+  renderFeatures();
+}
+
+function deleteFeature(index) {
+  config.features.items.splice(index, 1);
+  renderFeatures();
+}
+
+function addFeatureItem() {
+  config.features.items.push({
+    icon: '✨',
+    title: 'Nuevo Feature',
+    description: 'Descripción...',
+    isLarge: false,
+    hasLink: false,
+    linkText: 'Saber más →'
+  });
+  renderFeatures();
+}
+
+function moveDashboardStat(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= config.dashboard.stats.length) return;
+  [config.dashboard.stats[index], config.dashboard.stats[newIndex]] =
+  [config.dashboard.stats[newIndex], config.dashboard.stats[index]];
+  renderDashboardStats();
+}
+
+function deleteDashboardStat(index) {
+  config.dashboard.stats.splice(index, 1);
+  renderDashboardStats();
+}
+
+function addDashboardStat() {
+  config.dashboard.stats.push({ value: '+0%', label: 'Métrica' });
+  renderDashboardStats();
+}
+
+function moveDashboardProgress(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= config.dashboard.progressBars.length) return;
+  [config.dashboard.progressBars[index], config.dashboard.progressBars[newIndex]] =
+  [config.dashboard.progressBars[newIndex], config.dashboard.progressBars[index]];
+  renderDashboardProgress();
+}
+
+function deleteDashboardProgress(index) {
+  config.dashboard.progressBars.splice(index, 1);
+  renderDashboardProgress();
+}
+
+function addDashboardProgress() {
+  config.dashboard.progressBars.push({ label: 'Progreso', value: 50 });
+  renderDashboardProgress();
+}
+
+function moveDashboardTag(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= config.dashboard.tags.length) return;
+  [config.dashboard.tags[index], config.dashboard.tags[newIndex]] =
+  [config.dashboard.tags[newIndex], config.dashboard.tags[index]];
+  renderDashboardTags();
+}
+
+function deleteDashboardTag(index) {
+  config.dashboard.tags.splice(index, 1);
+  renderDashboardTags();
+}
+
+function addDashboardTag() {
+  config.dashboard.tags.push('Nuevo tag');
+  renderDashboardTags();
+}
+
+function moveDashboardFloat(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= config.dashboard.floatBadges.length) return;
+  [config.dashboard.floatBadges[index], config.dashboard.floatBadges[newIndex]] =
+  [config.dashboard.floatBadges[newIndex], config.dashboard.floatBadges[index]];
+  renderDashboardFloats();
+}
+
+function deleteDashboardFloat(index) {
+  config.dashboard.floatBadges.splice(index, 1);
+  renderDashboardFloats();
+}
+
+function addDashboardFloat() {
+  config.dashboard.floatBadges.push({ text: 'Nuevo badge', color: 'green' });
+  renderDashboardFloats();
+}
+
+function movePlan(index, direction) {
+  const newIndex = index + direction;
+  if (newIndex < 0 || newIndex >= config.pricing.plans.length) return;
+  [config.pricing.plans[index], config.pricing.plans[newIndex]] =
+  [config.pricing.plans[newIndex], config.pricing.plans[index]];
+  renderPricing();
+}
+
+function deletePlan(index) {
+  config.pricing.plans.splice(index, 1);
+  renderPricing();
+}
+
+function addPlanFeature(planIdx) {
+  config.pricing.plans[planIdx].features.push({ text: 'Nueva característica', included: true });
+  renderPricing();
+}
+
+function deletePlanFeature(planIdx, featIdx) {
+  config.pricing.plans[planIdx].features.splice(featIdx, 1);
+  renderPricing();
+}
+
+// ============================================
+// COLOR PICKER SYNC
+// ============================================
+
+['accent', 'gold'].forEach(color => {
+  const picker = document.getElementById(`colors-${color}-picker`);
+  const input = document.getElementById(`colors-${color}`);
+
+  picker.addEventListener('input', () => {
+    input.value = picker.value;
+    config.colors[color] = picker.value;
+  });
+
+  input.addEventListener('input', () => {
+    if (/^#[0-9A-Fa-f]{6}$/.test(input.value)) {
+      picker.value = input.value;
+      config.colors[color] = input.value;
+    }
+  });
+});
+
+// ============================================
+// NAVIGATION
+// ============================================
+
+document.querySelectorAll('.sidebar-nav a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    document.querySelectorAll('.sidebar-nav a').forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+
+    const sectionId = link.getAttribute('data-section');
+    document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(`panel-${sectionId}`).classList.add('active');
+
+    document.querySelector('.editor-content').scrollTop = 0;
+  });
+});
+
+// ============================================
+// SAVE/RESET/PREVIEW
+// ============================================
+
+function getConfigFromForm() {
+  // General
+  config.general.productName = document.getElementById('general-productName').value;
+  config.general.logoEmoji = document.getElementById('general-logoEmoji').value;
+  config.general.tagline = document.getElementById('general-tagline').value;
+  config.general.description = document.getElementById('general-description').value;
+  config.contact.email = document.getElementById('contact-email').value;
+  config.contact.whatsapp = document.getElementById('contact-whatsapp').value;
+
+  // Colors
+  config.colors.accent = document.getElementById('colors-accent').value;
+  config.colors.gold = document.getElementById('colors-gold').value;
+
+  // Nav
+  config.nav.ctaText = document.getElementById('nav-ctaText').value;
+
+  // Hero
+  config.hero.badgeText = document.getElementById('hero-badgeText').value;
+  config.hero.title = document.getElementById('hero-title').value;
+  config.hero.titleEm = document.getElementById('hero-titleEm').value;
+  config.hero.titleStrong = document.getElementById('hero-titleStrong').value;
+  config.hero.description = document.getElementById('hero-description').value;
+  config.hero.ctaPrimary = document.getElementById('hero-ctaPrimary').value;
+  config.hero.ctaSecondary = document.getElementById('hero-ctaSecondary').value;
+  config.hero.socialProofText = document.getElementById('hero-socialProofText').value;
+  config.hero.socialProofStars = document.getElementById('hero-socialProofStars').value;
+
+  // Trust
+  config.trustBar.label = document.getElementById('trust-label').value;
+
+  // Features
+  config.features.eyebrow = document.getElementById('features-eyebrow').value;
+  config.features.title = document.getElementById('features-title').value;
+  config.features.titleEm = document.getElementById('features-titleEm').value;
+  config.features.subtitle = document.getElementById('features-subtitle').value;
+  config.features.ctaText = document.getElementById('features-ctaText').value;
+
+  // Dashboard
+  config.dashboard.title = document.getElementById('dashboard-title').value;
+  config.dashboard.subtitle = document.getElementById('dashboard-subtitle').value;
+  config.dashboard.avatarEmoji = document.getElementById('dashboard-avatar').value;
+
+  // Pricing
+  config.pricing.eyebrow = document.getElementById('pricing-eyebrow').value;
+  config.pricing.title = document.getElementById('pricing-title').value;
+  config.pricing.titleEm = document.getElementById('pricing-titleEm').value;
+  config.pricing.subtitle = document.getElementById('pricing-subtitle').value;
+  config.pricing.toggleLabel1 = document.getElementById('pricing-toggleLabel1').value;
+  config.pricing.toggleLabel2 = document.getElementById('pricing-toggleLabel2').value;
+  config.pricing.saveBadge = document.getElementById('pricing-saveBadge').value;
+  config.pricing.footerText = document.getElementById('pricing-footerText').value;
+
+  // CTA
+  config.cta.eyebrow = document.getElementById('cta-eyebrow').value;
+  config.cta.title = document.getElementById('cta-title').value;
+  config.cta.titleEm = document.getElementById('cta-titleEm').value;
+  config.cta.description = document.getElementById('cta-description').value;
+  config.cta.ctaPrimary = document.getElementById('cta-ctaPrimary').value;
+  config.cta.ctaSecondary = document.getElementById('cta-ctaSecondary').value;
+  config.cta.note = document.getElementById('cta-note').value;
+
+  // Footer
+  config.footer.description = document.getElementById('footer-description').value;
+  config.footer.copyright = document.getElementById('footer-copyright').value;
+  config.footer.location = document.getElementById('footer-location').value;
+  config.footer.hours = document.getElementById('footer-hours').value;
+  config.footer.columns.servicios = document.getElementById('footer-links-servicios').value.split(',').map(s => s.trim()).filter(s => s);
+  config.footer.columns.empresa = document.getElementById('footer-links-empresa').value.split(',').map(s => s.trim()).filter(s => s);
+  config.footer.columns.contacto = document.getElementById('footer-links-contacto').value.split(',').map(s => s.trim()).filter(s => s);
+  config.footer.legalLinks = document.getElementById('footer-legalLinks').value.split(',').map(s => s.trim()).filter(s => s);
+}
+
+async function saveConfig() {
+  getConfigFromForm();
+
+  try {
+    const dataStr = JSON.stringify(config, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'startup-hero-config.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showToast('Configuración descargada ✅');
+
+    localStorage.setItem('startup-hero-config', JSON.stringify(config));
+  } catch (error) {
+    showToast('Error al guardar: ' + error.message, true);
+  }
+}
+
+function resetConfig() {
+  if (confirm('¿Estás seguro de resetear todos los cambios?')) {
+    loadConfig();
+    showToast('Configuración reseteada');
+  }
+}
+
+function previewTemplate() {
+  getConfigFromForm();
+  localStorage.setItem('startup-hero-config', JSON.stringify(config));
+  window.open('pages/startup-hero.html?preview=true', '_blank');
+}
+
+// ============================================
+// UTILS
+// ============================================
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function showToast(message, isError = false) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.toggle('error', isError);
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ============================================
+// INIT
+// ============================================
+
+loadConfig();
+</script>
+
+</body>
+</html>

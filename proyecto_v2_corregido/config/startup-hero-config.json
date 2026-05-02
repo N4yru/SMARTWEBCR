@@ -1,0 +1,194 @@
+{
+  "general": {
+    "productName": "ProConsult",
+    "tagline": "Servicios profesionales de élite",
+    "description": "Consultores de alto nivel para empresas que buscan crecer con estrategia, precisión y resultados.",
+    "logoEmoji": "✦",
+    "favicon": "favicon.ico"
+  },
+  "contact": {
+    "email": "hola@proconsult.com",
+    "supportEmail": "hola@proconsult.com",
+    "whatsapp": "50600000000"
+  },
+  "colors": {
+    "accent": "#0EA5E9",
+    "accentRgb": "14, 165, 233",
+    "gold": "#C9A84C"
+  },
+  "nav": {
+    "links": [
+      {"text": "Servicios", "href": "#features"},
+      {"text": "Precios", "href": "#pricing"},
+      {"text": "Contacto", "href": "#cta"}
+    ],
+    "ctaText": "Consulta gratis →"
+  },
+  "hero": {
+    "badgeText": "✦ Servicios profesionales de élite",
+    "title": "Estrategia que transforma resultados.",
+    "titleEm": "transforma",
+    "titleStrong": "resultados.",
+    "description": "Conectamos el potencial de tu empresa con estrategias comprobadas. Consultoría de alto nivel, sin rodeos, con resultados medibles desde el primer mes.",
+    "ctaPrimary": "Empezar ahora →",
+    "ctaSecondary": "Ver servicios",
+    "socialProofText": "+120 clientes satisfechos con resultados comprobados",
+    "socialProofStars": "★★★★★"
+  },
+  "trustBar": {
+    "label": "Con la confianza de empresas líderes",
+    "logos": ["Acme Corp", "Nexus Group", "Veridian", "Atlas Co.", "Lumina Inc", "Keystone"]
+  },
+  "features": {
+    "eyebrow": "Nuestros servicios",
+    "title": "Todo lo que necesitás para crecer con claridad",
+    "titleEm": "crecer con claridad",
+    "subtitle": "Desde la estrategia inicial hasta la ejecución y el seguimiento. Un equipo experto disponible para cada etapa de tu negocio.",
+    "ctaText": "Ver todos los servicios →",
+    "items": [
+      {
+        "icon": "🎯",
+        "title": "Consultoría Estratégica",
+        "description": "Analizamos tu modelo de negocio, identificamos oportunidades ocultas y diseñamos una hoja de ruta clara con metas medibles.",
+        "isLarge": true,
+        "hasLink": true,
+        "linkText": "Saber más →"
+      },
+      {
+        "icon": "💼",
+        "title": "Gestión Financiera",
+        "description": "Control de flujo de caja, proyecciones financieras y optimización de costos para tomar decisiones con datos reales.",
+        "isLarge": false,
+        "hasLink": false
+      },
+      {
+        "icon": "⚙️",
+        "title": "Optimización de Procesos",
+        "description": "Identificamos cuellos de botella y rediseñamos flujos de trabajo para que tu equipo sea más productivo y eficiente.",
+        "isLarge": false,
+        "hasLink": false
+      },
+      {
+        "icon": "📣",
+        "title": "Estrategia de Marketing",
+        "description": "Posicionamiento de marca, canales de adquisición y campañas enfocadas en conversión y retención de clientes.",
+        "isLarge": false,
+        "hasLink": false
+      },
+      {
+        "icon": "🤝",
+        "title": "Mentoría Ejecutiva",
+        "description": "Acompañamiento personalizado para líderes y fundadores. Tomá decisiones difíciles con un experto a tu lado.",
+        "isLarge": false,
+        "hasLink": false
+      },
+      {
+        "icon": "📊",
+        "title": "Reportería y KPIs",
+        "description": "Dashboards personalizados y reportes ejecutivos para que siempre sepas exactamente en qué punto está tu empresa.",
+        "isLarge": false,
+        "hasLink": false
+      }
+    ]
+  },
+  "dashboard": {
+    "title": "Panel de Resultados",
+    "subtitle": "Actualizado en tiempo real",
+    "stats": [
+      {"value": "+38%", "label": "Crecimiento"},
+      {"value": "2.4x", "label": "ROI Promedio"},
+      {"value": "30d", "label": "Primer resultado"}
+    ],
+    "progressBars": [
+      {"label": "Objetivos Q4", "value": 78},
+      {"label": "Retención de clientes", "value": 94}
+    ],
+    "tags": ["Estrategia", "Finanzas", "Operaciones", "Marketing"],
+    "floatBadges": [
+      {"text": "Nuevo cliente activo", "color": "green"},
+      {"text": "Meta Q4 superada ↑", "color": "blue"}
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Planes y precios",
+    "title": "Inversión clara, resultados reales",
+    "titleEm": "resultados reales",
+    "subtitle": "Sin costos ocultos ni contratos eternos. Elegí el plan que se adapta a tu etapa.",
+    "toggleLabel1": "Mensual",
+    "toggleLabel2": "Anual",
+    "saveBadge": "-20%",
+    "footerText": "Sin contratos largos · Cancelá cuando quieras · Primera consulta gratis",
+    "plans": [
+      {
+        "name": "Starter",
+        "priceMonthly": "299",
+        "priceAnnual": "239",
+        "description": "Ideal para emprendedores y pequeñas empresas que están dando sus primeros pasos.",
+        "featured": false,
+        "features": [
+          {"text": "2 sesiones mensuales de consultoría", "included": true},
+          {"text": "Diagnóstico inicial de negocio", "included": true},
+          {"text": "Plan de acción personalizado", "included": true},
+          {"text": "Soporte por email y WhatsApp", "included": true},
+          {"text": "Dashboard de KPIs", "included": false},
+          {"text": "Mentoría ejecutiva 1:1", "included": false}
+        ],
+        "cta": "Comenzar →"
+      },
+      {
+        "name": "Pro",
+        "priceMonthly": "699",
+        "priceAnnual": "599",
+        "description": "Para empresas en crecimiento que necesitan acompañamiento estratégico constante.",
+        "featured": true,
+        "featuredLabel": "Más popular",
+        "features": [
+          {"text": "4 sesiones mensuales de consultoría", "included": true},
+          {"text": "Estrategia financiera y operativa", "included": true},
+          {"text": "Dashboard de KPIs personalizado", "included": true},
+          {"text": "Soporte prioritario 24/7", "included": true},
+          {"text": "Mentoría ejecutiva 1:1 mensual", "included": true},
+          {"text": "Equipo dedicado exclusivo", "included": false}
+        ],
+        "cta": "Comenzar →"
+      },
+      {
+        "name": "Enterprise",
+        "priceMonthly": "1499",
+        "priceAnnual": "1199",
+        "description": "Solución completa para empresas consolidadas que buscan expansión y alto impacto.",
+        "featured": false,
+        "features": [
+          {"text": "Sesiones ilimitadas de consultoría", "included": true},
+          {"text": "Estrategia integral 360°", "included": true},
+          {"text": "Dashboard avanzado + reportes ejecutivos", "included": true},
+          {"text": "Soporte dedicado 24/7", "included": true},
+          {"text": "Mentoría ejecutiva semanal", "included": true},
+          {"text": "Equipo dedicado exclusivo", "included": true}
+        ],
+        "cta": "Contactar →"
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Empezá hoy",
+    "title": "¿Listo para llevar tu empresa al siguiente nivel?",
+    "titleEm": "nivel",
+    "description": "La primera consulta es completamente gratuita y sin compromiso. En 30 minutos te decimos exactamente qué haríamos con tu negocio.",
+    "ctaPrimary": "Agendar consulta gratis →",
+    "ctaSecondary": "WhatsApp",
+    "note": "Sin tarjeta de crédito · Respuesta en menos de 24 horas"
+  },
+  "footer": {
+    "description": "Consultoría estratégica para empresas que quieren crecer con claridad, método y resultados reales.",
+    "copyright": "© ProConsult. Todos los derechos reservados.",
+    "location": "Costa Rica 🇨🇷",
+    "hours": "Lun–Vie 8am–6pm",
+    "columns": {
+      "servicios": ["Consultoría estratégica", "Gestión financiera", "Optimización de procesos", "Marketing"],
+      "empresa": ["Sobre nosotros", "Casos de éxito", "Precios", "Contacto"],
+      "contacto": ["hola@proconsult.com", "WhatsApp", "Costa Rica 🇨🇷", "Lun–Vie 8am–6pm"]
+    },
+    "legalLinks": ["Privacidad", "Términos"]
+  }
+}

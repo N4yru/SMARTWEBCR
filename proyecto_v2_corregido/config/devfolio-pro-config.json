@@ -1,0 +1,173 @@
+{
+  "general": {
+    "name": "Alex Ramírez",
+    "title": "Frontend Developer",
+    "location": "Costa Rica"
+  },
+  "contact": {
+    "email": "alex@dev.com",
+    "whatsapp": "50600000000",
+    "linkedin": "https://linkedin.com/in/alexdev",
+    "github": "https://github.com/alexdev"
+  },
+  "colors": {
+    "accent": "#00E5A0",
+    "secondary": "#6366F1",
+    "theme": "dark"
+  },
+  "nav": {
+    "logoName": "alex",
+    "logoSuffix": ".dev",
+    "ctaText": "Contratame →",
+    "links": [
+      { "text": "sobre_mi", "href": "#about" },
+      { "text": "skills", "href": "#skills" },
+      { "text": "proyectos", "href": "#projects" },
+      { "text": "experiencia", "href": "#experience" },
+      { "text": "contacto", "href": "#contact" }
+    ]
+  },
+  "hero": {
+    "statusText": "Disponible para proyectos",
+    "greeting": "// Hola, soy",
+    "name": "Alex Ramírez",
+    "description": "Construyo interfaces web rápidas, accesibles y visualmente impactantes.",
+    "ctaPrimary": "Ver proyectos →",
+    "ctaSecondary": "Contactarme",
+    "stack": "React, Next.js, TypeScript, Tailwind, Node.js",
+    "roles": "Frontend Developer|React Specialist|UI/UX Enthusiast|JavaScript Expert",
+    "floatBadges": [
+      { "icon": "⭐", "text": "4.9 en GitHub" },
+      { "icon": "🚀", "text": "+30 proyectos" }
+    ],
+    "codeSkills": ["React", "Next.js", "TypeScript", "Node"]
+  },
+  "about": {
+    "title": "Código limpio, resultados reales",
+    "desc1": "Soy un desarrollador frontend con más de 4 años de experiencia construyendo productos web que combinan rendimiento, accesibilidad y diseño de calidad.",
+    "desc2": "Me apasiona el detalle: desde la arquitectura de componentes hasta las micro-animaciones que hacen que una interfaz se sienta viva.",
+    "desc3": "Actualmente disponible para proyectos freelance y oportunidades remotas.",
+    "emoji": "👨‍💻",
+    "badges": "🏆 Top Rated Dev|📍 Costa Rica 🇨🇷",
+    "stats": [
+      { "number": "4+", "label": "Años de experiencia" },
+      { "number": "30+", "label": "Proyectos completados" },
+      { "number": "15+", "label": "Clientes satisfechos" },
+      { "number": "100%", "label": "Entregas a tiempo" }
+    ]
+  },
+  "skills": {
+    "title": "Mi stack técnico",
+    "subtitle": "Tecnologías con las que trabajo diariamente y en las que tengo experiencia sólida.",
+    "categories": "Todos, Frontend, Backend, Herramientas",
+    "items": [
+      { "icon": "⚛️", "name": "React", "level": "Avanzado", "percentage": 95, "category": "frontend" },
+      { "icon": "▲", "name": "Next.js", "level": "Avanzado", "percentage": 90, "category": "frontend" },
+      { "icon": "📘", "name": "TypeScript", "level": "Avanzado", "percentage": 88, "category": "frontend" },
+      { "icon": "🎨", "name": "Tailwind CSS", "level": "Avanzado", "percentage": 92, "category": "frontend" },
+      { "icon": "🟡", "name": "JavaScript", "level": "Avanzado", "percentage": 95, "category": "frontend" },
+      { "icon": "🌊", "name": "Framer Motion", "level": "Intermedio", "percentage": 78, "category": "frontend" },
+      { "icon": "🟢", "name": "Node.js", "level": "Intermedio", "percentage": 75, "category": "backend" },
+      { "icon": "🗄️", "name": "PostgreSQL", "level": "Intermedio", "percentage": 70, "category": "backend" },
+      { "icon": "🔺", "name": "Supabase", "level": "Intermedio", "percentage": 72, "category": "backend" },
+      { "icon": "🐙", "name": "Git / GitHub", "level": "Avanzado", "percentage": 90, "category": "tools" },
+      { "icon": "🎭", "name": "Figma", "level": "Intermedio", "percentage": 75, "category": "tools" },
+      { "icon": "☁️", "name": "Vercel / AWS", "level": "Intermedio", "percentage": 68, "category": "tools" }
+    ]
+  },
+  "projects": {
+    "title": "Lo que he construido",
+    "githubText": "Ver más en GitHub →",
+    "githubUrl": "https://github.com",
+    "items": [
+      {
+        "emoji": "🛒",
+        "title": "ShopNext — E-commerce",
+        "tags": "Next.js, TypeScript, Stripe",
+        "description": "Tienda online completa con carrito, pagos con Stripe, dashboard de admin y gestión de inventario en tiempo real.",
+        "demoUrl": "#",
+        "githubUrl": "#",
+        "featured": false
+      },
+      {
+        "emoji": "📊",
+        "title": "DataViz Dashboard",
+        "tags": "React, Supabase, Recharts",
+        "description": "Dashboard de análisis de datos con gráficas interactivas, filtros en tiempo real y exportación a CSV/PDF.",
+        "demoUrl": "#",
+        "githubUrl": "#",
+        "featured": true
+      },
+      {
+        "emoji": "💬",
+        "title": "ChatApp Real-time",
+        "tags": "React, Socket.io, Node.js",
+        "description": "Aplicación de mensajería en tiempo real con rooms, notificaciones push y soporte para archivos multimedia.",
+        "demoUrl": "#",
+        "githubUrl": "#",
+        "featured": false
+      },
+      {
+        "emoji": "🎯",
+        "title": "AI Task Manager",
+        "tags": "Next.js, Tailwind, OpenAI",
+        "description": "Gestor de tareas con sugerencias inteligentes por IA, priorización automática y reportes de productividad.",
+        "demoUrl": "#",
+        "githubUrl": "#",
+        "featured": false
+      },
+      {
+        "emoji": "🏠",
+        "title": "RealEstate Finder",
+        "tags": "React, Google Maps, PostgreSQL",
+        "description": "Plataforma de búsqueda inmobiliaria con mapa interactivo, filtros avanzados y sistema de favoritos.",
+        "demoUrl": "#",
+        "githubUrl": "#",
+        "featured": false
+      },
+      {
+        "emoji": "🎵",
+        "title": "Moodify — Music App",
+        "tags": "React, Spotify API, Framer",
+        "description": "App que recomienda música según el estado de ánimo usando la API de Spotify con animaciones fluidas.",
+        "demoUrl": "#",
+        "githubUrl": "#",
+        "featured": false
+      }
+    ]
+  },
+  "experience": {
+    "title": "Mi trayectoria",
+    "subtitle": "Los proyectos y empresas que me formaron como desarrollador.",
+    "items": [
+      {
+        "icon": "💼",
+        "period": "2023 — Presente",
+        "role": "Senior Frontend Developer",
+        "company": "TechCorp Solutions",
+        "description": "Lideré el rediseño completo de la plataforma principal usando React y TypeScript. Mejoré el rendimiento en un 60% y reduje el tiempo de carga de 4.2s a 1.1s. Mentoré a 3 desarrolladores junior.",
+        "techs": "React, TypeScript, Next.js, Tailwind, GraphQL, Jest"
+      },
+      {
+        "icon": "🚀",
+        "period": "2021 — 2023",
+        "role": "Frontend Developer",
+        "company": "Startup Innovate",
+        "description": "Desarrollé e implementé más de 15 features en el producto SaaS desde cero. Trabajé en estrecha colaboración con diseño y producto para traducir wireframes en interfaces funcionales.",
+        "techs": "React, Redux, SCSS, Node.js, PostgreSQL"
+      },
+      {
+        "icon": "🌱",
+        "period": "2020 — 2021",
+        "role": "Junior Web Developer",
+        "company": "Digital Agency CR",
+        "description": "Construí sitios web y landing pages para más de 20 clientes de distintos sectores. Implementé integraciones con APIs de terceros y optimicé el SEO técnico.",
+        "techs": "HTML, CSS, JavaScript, WordPress, PHP"
+      }
+    ]
+  },
+  "footer": {
+    "text": "Hecho con ❤️ y mucho ☕",
+    "links": "Inicio, Proyectos, Contacto, GitHub"
+  }
+}
